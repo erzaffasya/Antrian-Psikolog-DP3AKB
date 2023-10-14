@@ -1,141 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <meta name="description" content="POS - Bootstrap Admin Template">
-    <meta name="keywords"
-        content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
-    <meta name="author" content="Dreamguys - Bootstrap Admin Template">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Login - EMS</title>
+<html
+  lang="en"
+  class="light-style layout-wide customizer-hide"
+  dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Login Basic - Pages | Materialize - Material Design HTML Admin Template</title>
+
+    <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('tlandingpage/assets/img/logo.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{asset('tadmin/assets/img/favicon/favicon.ico')}}" />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('tlandingpage/assets/css/bootstrap.min.css') }}">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+      rel="stylesheet" />
 
-    <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="{{ asset('tlandingpage/assets/plugins/fontawesome/css/fontawesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('tlandingpage/assets/plugins/fontawesome/css/all.min.css') }}">
+    <!-- Icons -->
+    <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/fonts/materialdesignicons.css')}}" />
+    <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/fonts/fontawesome.css')}}" />
+    <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/fonts/flag-icons.css')}}" />
 
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="{{ asset('tlandingpage/assets/css/style.css') }}">
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/libs/node-waves/node-waves.css')}}" />
 
-</head>
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/css/rtl/core.css')}}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/css/rtl/theme-default.css')}}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{{asset('tadmin/assets/css/demo.css')}}" />
 
-<body class="double-diagonal dark auth-page">
-    <!-- Preloader Starts -->
-    <div class="preloader" id="preloader">
-        <div class="logopreloader">
-            <img src="http://via.placeholder.com/159x28" alt="logo">
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
+    <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/libs/typeahead-js/typeahead.css')}}" />
+    <!-- Vendor -->
+    <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/libs/@form-validation/umd/styles/index.min.css')}}" />
+
+    <!-- Page CSS -->
+    <!-- Page -->
+    <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/css/pages/page-auth.css')}}" />
+
+    <!-- Helpers -->
+    <script src="{{asset('tadmin/assets/vendor/js/helpers.js')}}"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="{{asset('tadmin/assets/vendor/js/template-customizer.js')}}"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="{{asset('tadmin/assets/js/config.js')}}"></script>
+  </head>
+
+  <body>
+    <!-- Content -->
+
+    <div class="position-relative">
+      <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner py-4">
+          <!-- Login -->
+          <div class="card p-2">
+            <!-- Logo -->
+            <div class="app-brand justify-content-center mt-5">
+              <a href="index.html" class="app-brand-link gap-2">
+                <span class="app-brand-logo demo">
+                  <span style="color: #666cff">
+                    <svg width="268" height="150" viewBox="0 0 38 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M30.0944 2.22569C29.0511 0.444187 26.7508 -0.172113 24.9566 0.849138C23.1623 1.87039 22.5536 4.14247 23.5969 5.92397L30.5368 17.7743C31.5801 19.5558 33.8804 20.1721 35.6746 19.1509C37.4689 18.1296 38.0776 15.8575 37.0343 14.076L30.0944 2.22569Z"
+                        fill="currentColor" />
+                      <path
+                        d="M30.171 2.22569C29.1277 0.444187 26.8274 -0.172113 25.0332 0.849138C23.2389 1.87039 22.6302 4.14247 23.6735 5.92397L30.6134 17.7743C31.6567 19.5558 33.957 20.1721 35.7512 19.1509C37.5455 18.1296 38.1542 15.8575 37.1109 14.076L30.171 2.22569Z"
+                        fill="url(#paint0_linear_2989_100980)"
+                        fill-opacity="0.4" />
+                      <path
+                        d="M22.9676 2.22569C24.0109 0.444187 26.3112 -0.172113 28.1054 0.849138C29.8996 1.87039 30.5084 4.14247 29.4651 5.92397L22.5251 17.7743C21.4818 19.5558 19.1816 20.1721 17.3873 19.1509C15.5931 18.1296 14.9843 15.8575 16.0276 14.076L22.9676 2.22569Z"
+                        fill="currentColor" />
+                      <path
+                        d="M14.9558 2.22569C13.9125 0.444187 11.6122 -0.172113 9.818 0.849138C8.02377 1.87039 7.41502 4.14247 8.45833 5.92397L15.3983 17.7743C16.4416 19.5558 18.7418 20.1721 20.5361 19.1509C22.3303 18.1296 22.9391 15.8575 21.8958 14.076L14.9558 2.22569Z"
+                        fill="currentColor" />
+                      <path
+                        d="M14.9558 2.22569C13.9125 0.444187 11.6122 -0.172113 9.818 0.849138C8.02377 1.87039 7.41502 4.14247 8.45833 5.92397L15.3983 17.7743C16.4416 19.5558 18.7418 20.1721 20.5361 19.1509C22.3303 18.1296 22.9391 15.8575 21.8958 14.076L14.9558 2.22569Z"
+                        fill="url(#paint1_linear_2989_100980)"
+                        fill-opacity="0.4" />
+                      <path
+                        d="M7.82901 2.22569C8.87231 0.444187 11.1726 -0.172113 12.9668 0.849138C14.7611 1.87039 15.3698 4.14247 14.3265 5.92397L7.38656 17.7743C6.34325 19.5558 4.04298 20.1721 2.24875 19.1509C0.454514 18.1296 -0.154233 15.8575 0.88907 14.076L7.82901 2.22569Z"
+                        fill="currentColor" />
+                      <defs>
+                        <linearGradient
+                          id="paint0_linear_2989_100980"
+                          x1="5.36642"
+                          y1="0.849138"
+                          x2="10.532"
+                          y2="24.104"
+                          gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stop-opacity="1" />
+                          <stop offset="1" stop-opacity="0" />
+                        </linearGradient>
+                        <linearGradient
+                          id="paint1_linear_2989_100980"
+                          x1="5.19475"
+                          y1="0.849139"
+                          x2="10.3357"
+                          y2="24.1155"
+                          gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stop-opacity="1" />
+                          <stop offset="1" stop-opacity="0" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </span>
+                </span>
+                <span class="app-brand-text demo text-heading fw-bold">Materialize</span>
+              </a>
+            </div>
+            <!-- /Logo -->
+
+            <div class="card-body mt-2">
+              <h4 class="mb-2">Welcome to Materialize! 👋</h4>
+              <p class="mb-4">Please sign-in to your account and start the adventure</p>
+
+              <form id="formAuthentication" class="mb-3" action="{{route('login')}}" method="POST">
+				@csrf
+                <div class="form-floating form-floating-outline mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email or username"
+                    autofocus />
+                  <label for="email">Email or Username</label>
+                </div>
+                <div class="mb-3">
+                  <div class="form-password-toggle">
+                    <div class="input-group input-group-merge">
+                      <div class="form-floating form-floating-outline">
+                        <input
+                          type="password"
+                          id="password"
+                          class="form-control"
+                          name="password"
+                          placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                          aria-describedby="password" />
+                        <label for="password">Password</label>
+                      </div>
+                      <span class="input-group-text cursor-pointer"><i class="mdi mdi-eye-off-outline"></i></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3 d-flex justify-content-between">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="remember-me" />
+                    <label class="form-check-label" for="remember-me"> Remember Me </label>
+                  </div>
+                  <a href="auth-forgot-password-basic.html" class="float-end mb-1">
+                    <span>Forgot Password?</span>
+                  </a>
+                </div>
+                <div class="mb-3">
+                  <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                </div>
+              </form>
+
+              <p class="text-center">
+                <span>New on our platform?</span>
+                <a href="auth-register-basic.html">
+                  <span>Create an account</span>
+                </a>
+              </p>
+
+              <div class="divider my-4">
+                <div class="divider-text">or</div>
+              </div>
+
+              <div class="d-flex justify-content-center gap-2">
+                <a href="javascript:;" class="btn btn-icon btn-lg rounded-pill btn-text-facebook">
+                  <i class="tf-icons mdi mdi-24px mdi-facebook"></i>
+                </a>
+
+                <a href="javascript:;" class="btn btn-icon btn-lg rounded-pill btn-text-twitter">
+                  <i class="tf-icons mdi mdi-24px mdi-twitter"></i>
+                </a>
+
+                <a href="javascript:;" class="btn btn-icon btn-lg rounded-pill btn-text-github">
+                  <i class="tf-icons mdi mdi-24px mdi-github"></i>
+                </a>
+
+                <a href="javascript:;" class="btn btn-icon btn-lg rounded-pill btn-text-google-plus">
+                  <i class="tf-icons mdi mdi-24px mdi-google"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- /Login -->
+          <img
+            alt="mask"
+            src="{{asset('tadmin/assets/img/illustrations/auth-basic-login-mask-light.png')}}"
+            class="authentication-image d-none d-lg-block" />
         </div>
-        <div class="loader" id="loader"></div>
+      </div>
     </div>
-    <!-- Preloader Ends -->
-    <!-- Page Wrapper Starts -->
-    <div class="wrapper">
-        <div class="container-fluid user-auth">
-			<div class="hidden-xs col-sm-4 col-md-4 col-lg-4">
-				<!-- Logo Starts -->
-				<a class="logo" href="index-kenburns.html">
-					<img class="img-responsive" src="http://via.placeholder.com/159x28" alt="logo">
-				</a>
-				<!-- Logo Ends -->
-				<!-- Slider Starts -->
-				<div id="carousel-testimonials" class="carousel slide carousel-fade" data-ride="carousel">
-					<!-- Indicators Starts -->
-					<ol class="carousel-indicators">
-						<li data-target="#carousel-testimonials" data-slide-to="0" class="active"></li>
-						<li data-target="#carousel-testimonials" data-slide-to="1"></li>
-						<li data-target="#carousel-testimonials" data-slide-to="2"></li>
-					</ol>
-					<!-- Indicators Ends -->
-					<!-- Carousel Inner Starts -->
-					<div class="carousel-inner">
-						<!-- Carousel Item Starts -->
-						<div class="item active item-1">
-							<div>
-								<blockquote>
-									<p>Amira's Team Was Great To Work With And Interpreted Our Needs Perfectly.</p>
-									<footer><span>Lucy Smith</span>, England</footer>
-								</blockquote>
-							</div>
-						</div>
-						<!-- Carousel Item Ends -->
-						<!-- Carousel Item Starts -->
-						<div class="item item-2">
-							<div>
-								<blockquote>
-									<p>The Team Is Endlessly Helpful, Flexible And Always Quick To Respond, Thanks Amira!</p>
-									<footer><span>Rawia Chniti</span>, Russia</footer>
-								</blockquote>
-							</div>
-						</div>
-						<!-- Carousel Item Ends -->
-						<!-- Carousel Item Starts -->
-						<div class="item item-3">
-							<div>
-								<blockquote>
-									<p>We Are So Appreciative Of Their Creative Efforts, And Love Our New Site!, millions of thanks Amira!</p>
-									<footer><span>Mario Verratti</span>, Spain</footer>
-								</blockquote>
-							</div>
-						</div>
-						<!-- Carousel Item Ends -->
-					</div>
-					<!-- Carousel Inner Ends -->
-				</div>
-				<!-- Slider Ends -->
-			</div>
-			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-				<!-- Logo Starts -->
-				<a class="visible-xs" href="index-kenburns.html">
-					<img class="img-responsive mobile-logo" src="http://via.placeholder.com/159x28" alt="logo">
-				</a>
-				<!-- Logo Ends -->
-				<div class="form-container">
-					<div>
-						<!-- Main Heading Starts -->
-					<div class="text-center top-text">
-						<h1><span>member</span> login</h1>
-						<p>great to have you back!</p>
-					</div>
-					<!-- Main Heading Ends -->
-						<!-- Form Starts -->
-						<form class="custom-form"  action="{{ route('login') }}" method="post">
-                            @csrf
-							<!-- Input Field Starts -->
-							<div class="form-group">
-								<input class="form-control" name="email" id="email" placeholder="EMAIL" type="email" required>
-							</div>
-							<!-- Input Field Ends -->
-							<!-- Input Field Starts -->
-							<div class="form-group">
-								<input class="form-control" name="password" id="password" placeholder="PASSWORD" type="password" required>
-							</div>
-							<!-- Input Field Ends -->
-							<!-- Submit Form Button Starts -->
-							<div class="form-group">
-								<button class="custom-button login" type="submit">login</button>
-								<p class="text-center">don't have an account ? <a href="register.html">register now</a>
-							</div>
-							<!-- Submit Form Button Ends -->
-						</form>
-						<!-- Form Ends -->
-					</div>
-				</div>
-				<!-- Copyright Text Starts -->
-				<p class="text-center copyright-text">Copyright © 2023 Ediya All Rights Reserved</p>
-				<!-- Copyright Text Ends -->
-			</div>
-		</div>
-    </div>
-    <!-- Wrapper Ends -->
 
-    @include('landingpage.partials.scripts')
-</body>
+    <!-- / Content -->
 
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="{{asset('tadmin/assets/vendor/libs/jquery/jquery.js')}}"></script>
+    <script src="{{asset('tadmin/assets/vendor/libs/popper/popper.js')}}"></script>
+    <script src="{{asset('tadmin/assets/vendor/js/bootstrap.js')}}"></script>
+    <script src="{{asset('tadmin/assets/vendor/libs/node-waves/node-waves.js')}}"></script>
+    <script src="{{asset('tadmin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
+    <script src="{{asset('tadmin/assets/vendor/libs/hammer/hammer.js')}}"></script>
+    <script src="{{asset('tadmin/assets/vendor/libs/i18n/i18n.js')}}"></script>
+    <script src="{{asset('tadmin/assets/vendor/libs/typeahead-js/typeahead.js')}}"></script>
+    <script src="{{asset('tadmin/assets/vendor/js/menu.js')}}"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="{{asset('tadmin/assets/vendor/libs/@form-validation/umd/bundle/popular.min.js')}}"></script>
+    <script src="{{asset('tadmin/assets/vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js')}}"></script>
+    <script src="{{asset('tadmin/assets/vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js')}}"></script>
+
+    <!-- Main JS -->
+    <script src="{{asset('tadmin/assets/js/main.js')}}"></script>
+
+    <!-- Page JS -->
+    <script src="{{asset('tadmin/assets/js/pages-auth.js')}}"></script>
+  </body>
 </html>

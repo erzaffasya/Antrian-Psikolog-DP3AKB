@@ -1,13 +1,11 @@
 <?php
 
-use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AntrianController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\BenefitController;
-use App\Http\Controllers\HeroController;
+use App\Http\Controllers\DokterController;
 use App\Http\Controllers\LandingpageController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\VideoPromoController;
+use App\Http\Controllers\SpesialisController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +31,10 @@ Route::get('/dashboard', function () {
 
 //make route for admin page
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
-    Route::resource('hero', HeroController::class);
+    Route::resource('spesialis', SpesialisController::class);
+    Route::resource('dokter', DokterController::class);
+    Route::resource('riwayat-tindakan', RiwayatTindakan::class);
+    Route::resource('antrian', AntrianController::class);
 });
 
 require __DIR__ . '/auth.php';

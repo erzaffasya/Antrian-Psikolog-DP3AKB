@@ -7,14 +7,11 @@ use Illuminate\Http\Request;
 
 class RiwayatTindakanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $RiwayatTindakan = RiwayatTindakan::all();
+        return view('admin.RiwayatTindakan.index', compact('RiwayatTindakan'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -24,7 +21,7 @@ class RiwayatTindakanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.RiwayatTindakan.tambah');
     }
 
     /**
@@ -35,16 +32,25 @@ class RiwayatTindakanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'survey_kepuasan_id' => 'required',
+        ]);
+
+        RiwayatTindakan::create([
+            'survey_kepuasan_id' => $request->survey_kepuasan_id,
+        ]);
+
+        return redirect()->route('RiwayatTindakan.index')
+            ->with('success', 'RiwayatTindakan Berhasil Ditambahkan');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\RiwayatTindakan  $riwayatTindakan
+     * @param  \App\Models\RiwayatTindakan  $RiwayatTindakan
      * @return \Illuminate\Http\Response
      */
-    public function show(RiwayatTindakan $riwayatTindakan)
+    public function show(RiwayatTindakan $RiwayatTindakan)
     {
         //
     }
@@ -52,34 +58,43 @@ class RiwayatTindakanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\RiwayatTindakan  $riwayatTindakan
+     * @param  \App\Models\RiwayatTindakan  $RiwayatTindakan
      * @return \Illuminate\Http\Response
      */
-    public function edit(RiwayatTindakan $riwayatTindakan)
+    public function edit($id)
     {
-        //
+        $RiwayatTindakan = RiwayatTindakan::find($id);
+        return view('admin.RiwayatTindakan.edit', compact('RiwayatTindakan'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\RiwayatTindakan  $riwayatTindakan
+     * @param  \App\Models\RiwayatTindakan  $RiwayatTindakan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RiwayatTindakan $riwayatTindakan)
+    public function update(Request $request, $id)
     {
-        //
+        $RiwayatTindakan = RiwayatTindakan::find($id);
+        $RiwayatTindakan->survey_kepuasan_id = $request->survey_kepuasan_id;
+        $RiwayatTindakan->save();
+
+        return redirect()->route('RiwayatTindakan.index')
+        ->with('edit', 'RiwayatTindakan Berhasil Diedit');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\RiwayatTindakan  $riwayatTindakan
+     * @param  \App\Models\RiwayatTindakan  $RiwayatTindakan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RiwayatTindakan $riwayatTindakan)
+    public function destroy($id)
     {
-        //
+        $RiwayatTindakan = RiwayatTindakan::findOrFail($id);
+        $RiwayatTindakan->delete();
+        return redirect()->route('RiwayatTindakan.index')
+            ->with('delete', 'RiwayatTindakan Berhasil Dihapus');
     }
 }
