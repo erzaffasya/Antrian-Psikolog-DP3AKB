@@ -10,7 +10,7 @@ class DokterController extends Controller
     public function index()
     {
         $Dokter = Dokter::all();
-        return view('admin.Dokter.index', compact('Dokter'))
+        return view('admin.dokter.index', compact('Dokter'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -21,7 +21,7 @@ class DokterController extends Controller
      */
     public function create()
     {
-        return view('admin.Dokter.tambah');
+        return view('admin.dokter.tambah');
     }
 
     /**
@@ -40,7 +40,7 @@ class DokterController extends Controller
             'survey_kepuasan_id' => $request->survey_kepuasan_id,
         ]);
 
-        return redirect()->route('Dokter.index')
+        return redirect()->route('dokter.index')
             ->with('success', 'Dokter Berhasil Ditambahkan');
     }
 
@@ -64,7 +64,7 @@ class DokterController extends Controller
     public function edit($id)
     {
         $Dokter = Dokter::find($id);
-        return view('admin.Dokter.edit', compact('Dokter'));
+        return view('admin.dokter.ubah', compact('Dokter'));
     }
 
     /**
@@ -80,7 +80,7 @@ class DokterController extends Controller
         $Dokter->survey_kepuasan_id = $request->survey_kepuasan_id;
         $Dokter->save();
 
-        return redirect()->route('Dokter.index')
+        return redirect()->route('dokter.index')
         ->with('edit', 'Dokter Berhasil Diedit');
     }
 
@@ -94,7 +94,7 @@ class DokterController extends Controller
     {
         $Dokter = Dokter::findOrFail($id);
         $Dokter->delete();
-        return redirect()->route('Dokter.index')
+        return redirect()->route('dokter.index')
             ->with('delete', 'Dokter Berhasil Dihapus');
     }
 }

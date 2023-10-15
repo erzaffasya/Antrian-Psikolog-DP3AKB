@@ -12,4 +12,9 @@ class Dokter extends Model
     protected $guarded = [];
 
     protected $primaryKey = 'id';
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'users_id', 'id');
+    }
 }
