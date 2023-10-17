@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokter;
+use App\Models\Spesialis;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DokterController extends Controller
@@ -21,7 +23,9 @@ class DokterController extends Controller
      */
     public function create()
     {
-        return view('admin.dokter.tambah');
+        $User = User::all();
+        $Spesialis = Spesialis::all();
+        return view('admin.dokter.tambah' , compact('User', 'Spesialis'));
     }
 
     /**
@@ -32,12 +36,17 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'survey_kepuasan_id' => 'required',
-        ]);
+    //     $request->validate([
+    //         'name' => 'required',
+    //     ]);
 
         Dokter::create([
-            'survey_kepuasan_id' => $request->survey_kepuasan_id,
+            'users_id' => $request->users_id,
+            'spesialis_id' => $request->spesialis_id,
+            'isLibur' => $request->isLibur,
+            'jam_selesai' => $request->jam_selesai,
+            'jam_mulai' => $request->jam_mulai,
+            'batas_maksimal' => $request->batas_maksimal
         ]);
 
         return redirect()->route('dokter.index')
@@ -64,7 +73,9 @@ class DokterController extends Controller
     public function edit($id)
     {
         $Dokter = Dokter::find($id);
-        return view('admin.dokter.ubah', compact('Dokter'));
+        $User = User::all();
+        $Spesialis = Spesialis::all();
+        return view('admin.dokter.ubah', compact('Dokter', 'User','Spesialis'));
     }
 
     /**
@@ -77,7 +88,12 @@ class DokterController extends Controller
     public function update(Request $request, $id)
     {
         $Dokter = Dokter::find($id);
-        $Dokter->survey_kepuasan_id = $request->survey_kepuasan_id;
+        $Dokter->batas_maksimal = $request->batas_maksimal;
+        $Dokter->jam_mulai = $request->jam_mulai;
+        $Dokter->jam_selesai = $request->jam_selesai;
+        $Dokter->isLibur = $request->isLibur;
+        $Dokter->spesialis_id = $request->spesialis_id;
+        $Dokter->users_id = $request->users_id;
         $Dokter->save();
 
         return redirect()->route('dokter.index')

@@ -1,9 +1,9 @@
 <x-app-layout>
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="py-3 mb-4">
-            <span class="text-muted fw-light">Tables /</span> Spesialis
+            <span class="text-muted fw-light">Tables /</span> Dokter
         </h4>
-        <a href="{{ route('spesialis.create') }}" class="btn btn-primary mb-4">Tambah Spesialis</a>
+        <a href="{{ route('dokter.create') }}" class="btn btn-primary mb-4">Tambah Dokter</a>
 
         <!-- Striped Rows -->
         <div class="card">
@@ -34,10 +34,10 @@
                                             <i class="mdi mdi-dots-vertical"></i>
                                             </button>
                                             <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{ route('spesialis.edit', $item->id) }}"
+                                            <a class="dropdown-item" href="{{ route('dokter.edit', $item->id) }}"
                                                 ><i class="mdi mdi-pencil-outline me-1"></i> Edit</a
                                             >
-                                            <form method="POST" action="{{ route('spesialis.destroy', $item->id) }}">
+                                            <form method="POST" action="{{ route('dokter.destroy', $item->id) }}">
                                                 @csrf
                                                 @method('DELETE')
 
