@@ -33,8 +33,8 @@
     <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/libs/node-waves/node-waves.css')}}" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/css/rtl/core.css')}}" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/css/rtl/theme-default.css')}}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/css/rtl/core.css')}}" />
+    <link rel="stylesheet" href="{{asset('tadmin/assets/vendor/css/rtl/theme-default.css')}}"  />
     <link rel="stylesheet" href="{{asset('tadmin/assets/css/demo.css')}}" />
 
     <!-- Vendors CSS -->
@@ -121,8 +121,8 @@
             <!-- /Logo -->
 
             <div class="card-body mt-2">
-              <h4 class="mb-2">Welcome to Materialize! 👋</h4>
-              <p class="mb-4">Please sign-in to your account and start the adventure</p>
+              <h4 class="mb-2">Welcome to Antrian Psikolog! 👋</h4>
+              <p class="mb-4">Please sign-in to your account</p>
 
               <form id="formAuthentication" class="mb-3" action="{{route('login')}}" method="POST">
 				@csrf
@@ -158,7 +158,7 @@
                     <input class="form-check-input" type="checkbox" id="remember-me" />
                     <label class="form-check-label" for="remember-me"> Remember Me </label>
                   </div>
-                  <a href="auth-forgot-password-basic.html" class="float-end mb-1">
+                  <a href="#" class="float-end mb-1">
                     <span>Forgot Password?</span>
                   </a>
                 </div>
@@ -169,32 +169,11 @@
 
               <p class="text-center">
                 <span>New on our platform?</span>
-                <a href="auth-register-basic.html">
+                <a href="#">
                   <span>Create an account</span>
                 </a>
               </p>
 
-              <div class="divider my-4">
-                <div class="divider-text">or</div>
-              </div>
-
-              <div class="d-flex justify-content-center gap-2">
-                <a href="javascript:;" class="btn btn-icon btn-lg rounded-pill btn-text-facebook">
-                  <i class="tf-icons mdi mdi-24px mdi-facebook"></i>
-                </a>
-
-                <a href="javascript:;" class="btn btn-icon btn-lg rounded-pill btn-text-twitter">
-                  <i class="tf-icons mdi mdi-24px mdi-twitter"></i>
-                </a>
-
-                <a href="javascript:;" class="btn btn-icon btn-lg rounded-pill btn-text-github">
-                  <i class="tf-icons mdi mdi-24px mdi-github"></i>
-                </a>
-
-                <a href="javascript:;" class="btn btn-icon btn-lg rounded-pill btn-text-google-plus">
-                  <i class="tf-icons mdi mdi-24px mdi-google"></i>
-                </a>
-              </div>
             </div>
           </div>
           <!-- /Login -->
