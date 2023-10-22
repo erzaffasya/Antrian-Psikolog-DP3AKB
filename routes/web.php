@@ -6,6 +6,8 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\SpesialisController;
+use App\Http\Controllers\NomorAntrianController;
+use App\Http\Controllers\PanggilanAntrianController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('dokter', DokterController::class);
     Route::resource('riwayat-tindakan', RiwayatTindakan::class);
     Route::resource('antrian', AntrianController::class);
+    Route::resource('panggilan-antrian', PanggilanAntrianController::class);
 });
 
 require __DIR__ . '/auth.php';

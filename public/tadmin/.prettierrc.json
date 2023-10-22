@@ -16,13 +16,14 @@
   "useTabs": false,
   "endOfLine": "lf",
   "embeddedLanguageFormatting": "auto",
+  "plugins": ["@shufo/prettier-plugin-blade"],
   "overrides": [
     {
-      "files": [
-        "js/**/*.js"
-      ],
+      "files": ["js/**/*.js", "*.blade.php"],
       "options": {
-        "semi": false
+        "semi": false,
+        "parser": "blade",
+        "tabWidth": 4
       }
     }
   ]

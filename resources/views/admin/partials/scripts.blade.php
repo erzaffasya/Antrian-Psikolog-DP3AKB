@@ -18,6 +18,8 @@
 <!-- Main JS -->
 <script src="{{ asset('tadmin/assets/js/main.js') }}"></script>
 
+ <!-- Page JS -->
+ <script src="{{ asset('tadmin/assets/js/dashboards-crm.js') }}"></script>
 
 <!-- Page JS -->
 <script src="{{ asset('tadmin/assets/js/dashboards-analytics.js') }}"></script>

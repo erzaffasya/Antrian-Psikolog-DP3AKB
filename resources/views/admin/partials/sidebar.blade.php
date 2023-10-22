@@ -28,8 +28,16 @@
                             <div data-i18n="Dokter">Dokter</div>
                         </a>
                     </li>
+                    <li class="menu-item {{ Request::routeIs('.*') ? 'active' : '' }}">
+                        <a href="{{ route('panggilan-antrian.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
+                    <div data-i18n="Antrian">Antrian</div>
+                </a>
+            </li>
                 </ul>
             </li>
+
+
 
             <!-- Charts & Maps -->
             {{-- <li class="menu-item {{ Request::routeIs('dokter.*') ? 'active' : '' }}">
