@@ -20,6 +20,18 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('role',['Admin','Member', 'Dokter']);
+            $table->string('nama_lengkap')->nullable();
+
+            $table->integer('nik')->nullable();
+            $table->date('tgl_lahir')->nullable();
+            $table->enum('jenis_kelamin',['Laki-Laki','Perempuan'])->nullable();
+            $table->string('hp')->nullable();
+            $table->string('nama_lengkap')->nullable();
+            $table->string('pekerjaan')->nullable();
+            $table->string('agama')->nullable();
+            $table->integer('kelurahan')->nullable();
+            $table->integer('kecamatan')->nullable();
+            $table->text('alamat')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

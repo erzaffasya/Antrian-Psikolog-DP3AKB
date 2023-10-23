@@ -164,8 +164,8 @@
                     <span class="bs-stepper-label">
                       <span class="bs-stepper-number">03</span>
                       <span class="d-flex flex-column gap-1 ms-2">
-                        <span class="bs-stepper-title">Billing</span>
-                        <span class="bs-stepper-subtitle">Payment Details</span>
+                        <span class="bs-stepper-title">Finish</span>
+                        <span class="bs-stepper-subtitle">Term and Condition</span>
                       </span>
                     </span>
                   </button>
@@ -184,7 +184,7 @@
                         <div class="form-floating form-floating-outline">
                           <input
                             type="text"
-                            name="multiStepsUsername"
+                            name="username"
                             id="multiStepsUsername"
                             class="form-control"
                             placeholder="johndoe" />
@@ -195,7 +195,7 @@
                         <div class="form-floating form-floating-outline">
                           <input
                             type="email"
-                            name="multiStepsEmail"
+                            name="email"
                             id="multiStepsEmail"
                             class="form-control"
                             placeholder="john.doe@email.com"
@@ -209,7 +209,7 @@
                             <input
                               type="password"
                               id="multiStepsPass"
-                              name="multiStepsPass"
+                              name="password"
                               class="form-control"
                               placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                               aria-describedby="multiStepsPass2" />
@@ -226,7 +226,7 @@
                             <input
                               type="password"
                               id="multiStepsConfirmPass"
-                              name="multiStepsConfirmPass"
+                              name="password2"
                               class="form-control"
                               placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                               aria-describedby="multiStepsConfirmPass2" />
@@ -241,12 +241,12 @@
                         <div class="form-floating form-floating-outline">
                           <input
                             type="text"
-                            name="multiStepsURL"
+                            name="nama_lengkap"
                             id="multiStepsURL"
                             class="form-control"
                             placeholder="johndoe/profile"
                             aria-label="johndoe" />
-                          <label for="multiStepsURL">Profile Link</label>
+                          <label for="multiStepsURL">Nama Lengkap</label>
                         </div>
                       </div>
                       <div class="col-12 d-flex justify-content-between">
@@ -273,34 +273,43 @@
                           <input
                             type="text"
                             id="multiStepsFirstName"
-                            name="multiStepsFirstName"
+                            name="nik"
                             class="form-control"
-                            placeholder="John" />
-                          <label for="multiStepsFirstName">First Name</label>
+                            placeholder="" />
+                          <label for="multiStepsFirstName">NIK</label>
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-floating form-floating-outline">
                           <input
-                            type="text"
-                            id="multiStepsLastName"
-                            name="multiStepsLastName"
-                            class="form-control"
-                            placeholder="Doe" />
-                          <label for="multiStepsLastName">Last Name</label>
+                            type="date"
+                            name="tgl_lahir"
+                            class="form-control multi-steps-pincode"
+                            placeholder="Postal Code"
+                            maxlength="6" />
+                          <label for="multiStepsPincode">Tanggal Lahir</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-floating form-floating-outline">
+                          <select id="multiStepsState" name="jenis_kelamin" class="select2 form-select" data-allow-clear="true">
+                            <option value="">Select</option>
+                            <option value="">Laki-Laki</option>
+                            <option value="">Perempuan</option>
+                          </select>
+                          <label for="multiStepsState">Jenis Kelamin</label>
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="input-group input-group-merge">
-                          <span class="input-group-text">US (+1)</span>
                           <div class="form-floating form-floating-outline">
                             <input
                               type="text"
                               id="multiStepsMobile"
-                              name="multiStepsMobile"
+                              name="hp"
                               class="form-control multi-steps-mobile"
                               placeholder="202 555 0111" />
-                            <label for="multiStepsMobile">Mobile</label>
+                            <label for="multiStepsMobile">Nomor HP</label>
                           </div>
                         </div>
                       </div>
@@ -308,12 +317,39 @@
                         <div class="form-floating form-floating-outline">
                           <input
                             type="text"
-                            id="multiStepsPincode"
-                            name="multiStepsPincode"
-                            class="form-control multi-steps-pincode"
-                            placeholder="Postal Code"
-                            maxlength="6" />
-                          <label for="multiStepsPincode">Pincode</label>
+                            id="multiStepsLastName"
+                            name="pekerjaan"
+                            class="form-control"
+                            placeholder="Doe" />
+                          <label for="multiStepsLastName">Pekerjaan</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-floating form-floating-outline">
+                          <input
+                            type="text"
+                            id="multiStepsLastName"
+                            name="agama"
+                            class="form-control"
+                            placeholder="Doe" />
+                          <label for="multiStepsLastName">Agama</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-floating form-floating-outline">
+                          <input
+                            type="text"
+                            id="multiStepsArea"
+                            name="kelurahan"
+                            class="form-control"
+                            placeholder="Area/Landmark" />
+                          <label for="multiStepsArea">Kelurahan</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-floating form-floating-outline">
+                          <input type="text" name="kecamatan" id="multiStepsCity" class="form-control" placeholder="Jackson" />
+                          <label for="multiStepsCity">Kecamatan</label>
                         </div>
                       </div>
                       <div class="col-md-12">
@@ -321,88 +357,13 @@
                           <input
                             type="text"
                             id="multiStepsAddress"
-                            name="multiStepsAddress"
+                            name="alamat"
                             class="form-control"
                             placeholder="Address" />
-                          <label for="multiStepsAddress">Address</label>
+                          <label for="multiStepsAddress">Alamat</label>
                         </div>
                       </div>
-                      <div class="col-md-12">
-                        <div class="form-floating form-floating-outline">
-                          <input
-                            type="text"
-                            id="multiStepsArea"
-                            name="multiStepsArea"
-                            class="form-control"
-                            placeholder="Area/Landmark" />
-                          <label for="multiStepsArea">Landmark</label>
-                        </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <div class="form-floating form-floating-outline">
-                          <input type="text" id="multiStepsCity" class="form-control" placeholder="Jackson" />
-                          <label for="multiStepsCity">City</label>
-                        </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <div class="form-floating form-floating-outline">
-                          <select id="multiStepsState" class="select2 form-select" data-allow-clear="true">
-                            <option value="">Select</option>
-                            <option value="AL">Alabama</option>
-                            <option value="AK">Alaska</option>
-                            <option value="AZ">Arizona</option>
-                            <option value="AR">Arkansas</option>
-                            <option value="CA">California</option>
-                            <option value="CO">Colorado</option>
-                            <option value="CT">Connecticut</option>
-                            <option value="DE">Delaware</option>
-                            <option value="DC">District Of Columbia</option>
-                            <option value="FL">Florida</option>
-                            <option value="GA">Georgia</option>
-                            <option value="HI">Hawaii</option>
-                            <option value="ID">Idaho</option>
-                            <option value="IL">Illinois</option>
-                            <option value="IN">Indiana</option>
-                            <option value="IA">Iowa</option>
-                            <option value="KS">Kansas</option>
-                            <option value="KY">Kentucky</option>
-                            <option value="LA">Louisiana</option>
-                            <option value="ME">Maine</option>
-                            <option value="MD">Maryland</option>
-                            <option value="MA">Massachusetts</option>
-                            <option value="MI">Michigan</option>
-                            <option value="MN">Minnesota</option>
-                            <option value="MS">Mississippi</option>
-                            <option value="MO">Missouri</option>
-                            <option value="MT">Montana</option>
-                            <option value="NE">Nebraska</option>
-                            <option value="NV">Nevada</option>
-                            <option value="NH">New Hampshire</option>
-                            <option value="NJ">New Jersey</option>
-                            <option value="NM">New Mexico</option>
-                            <option value="NY">New York</option>
-                            <option value="NC">North Carolina</option>
-                            <option value="ND">North Dakota</option>
-                            <option value="OH">Ohio</option>
-                            <option value="OK">Oklahoma</option>
-                            <option value="OR">Oregon</option>
-                            <option value="PA">Pennsylvania</option>
-                            <option value="RI">Rhode Island</option>
-                            <option value="SC">South Carolina</option>
-                            <option value="SD">South Dakota</option>
-                            <option value="TN">Tennessee</option>
-                            <option value="TX">Texas</option>
-                            <option value="UT">Utah</option>
-                            <option value="VT">Vermont</option>
-                            <option value="VA">Virginia</option>
-                            <option value="WA">Washington</option>
-                            <option value="WV">West Virginia</option>
-                            <option value="WI">Wisconsin</option>
-                            <option value="WY">Wyoming</option>
-                          </select>
-                          <label for="multiStepsState">State</label>
-                        </div>
-                      </div>
+                    
                       <div class="col-12 d-flex justify-content-between">
                         <button class="btn btn-secondary btn-prev">
                           <i class="mdi mdi-arrow-left me-sm-1 me-0"></i>
@@ -417,144 +378,7 @@
                   </div>
                   <!-- Billing Links -->
                   <div id="billingLinksValidation" class="content">
-                    <div class="content-header mb-3">
-                      <h4 class="mb-0">Select Plan</h4>
-                      <small>Select plan as per your requirement</small>
-                    </div>
-                    <!-- Custom plan options -->
-                    <div class="row gap-md-0 gap-3 mb-4">
-                      <div class="col-md">
-                        <div class="form-check custom-option custom-option-icon">
-                          <label class="form-check-label custom-option-content" for="basicOption">
-                            <span class="custom-option-body">
-                              <span class="fs-4 d-block fw-medium text-heading">Basic</span>
-                              <small>A simple start for start ups & Students</small>
-                              <span class="d-flex justify-content-center py-2">
-                                <sup class="text-primary fs-6 lh-1 mt-2">$</sup>
-                                <span class="fw-medium display-5 text-primary">0</span>
-                                <sub class="lh-1 fs-big mt-auto mb-2">/month</sub>
-                              </span>
-                            </span>
-                            <input
-                              name="customRadioIcon"
-                              class="form-check-input"
-                              type="radio"
-                              value=""
-                              id="basicOption" />
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-md">
-                        <div class="form-check custom-option custom-option-icon">
-                          <label class="form-check-label custom-option-content" for="standardOption">
-                            <span class="custom-option-body">
-                              <span class="fs-4 d-block fw-medium text-heading">Standard</span>
-                              <small>For small to medium businesses</small>
-                              <span class="d-flex justify-content-center py-2">
-                                <sup class="text-primary fs-6 lh-1 mt-2">$</sup>
-                                <span class="fw-medium display-5 text-primary">99</span>
-                                <sub class="lh-1 fs-big mt-auto mb-2">/month</sub>
-                              </span>
-                            </span>
-                            <input
-                              name="customRadioIcon"
-                              class="form-check-input"
-                              type="radio"
-                              value=""
-                              id="standardOption"
-                              checked />
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-md">
-                        <div class="form-check custom-option custom-option-icon">
-                          <label class="form-check-label custom-option-content" for="enterpriseOption">
-                            <span class="custom-option-body">
-                              <span class="fs-4 d-block fw-medium text-heading">Enterprise</span>
-                              <small>Solution for enterprise & organizations</small>
-                              <span class="d-flex justify-content-center py-2">
-                                <sup class="text-primary fs-6 lh-1 mt-2">$</sup>
-                                <span class="fw-medium display-5 text-primary">499</span>
-                                <sub class="lh-1 fs-big mt-auto mb-2">/year</sub>
-                              </span>
-                            </span>
-                            <input
-                              name="customRadioIcon"
-                              class="form-check-input"
-                              type="radio"
-                              value=""
-                              id="enterpriseOption" />
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                    <!--/ Custom plan options -->
-                    <div class="content-header mb-3">
-                      <h4 class="mb-0">Payment Information</h4>
-                      <small>Enter your card information</small>
-                    </div>
-                    <!-- Credit Card Details -->
-                    <div class="row g-3">
-                      <div class="col-md-12">
-                        <div class="input-group input-group-merge">
-                          <div class="form-floating form-floating-outline">
-                            <input
-                              id="multiStepsCard"
-                              class="form-control multi-steps-card"
-                              name="multiStepsCard"
-                              type="text"
-                              placeholder="1356 3215 6548 7898"
-                              aria-describedby="multiStepsCardImg" />
-                            <label for="multiStepsCard">Card Number</label>
-                          </div>
-                          <span class="input-group-text cursor-pointer" id="multiStepsCardImg"
-                            ><span class="card-type"></span
-                          ></span>
-                        </div>
-                      </div>
-                      <div class="col-md-5">
-                        <div class="form-floating form-floating-outline">
-                          <input
-                            type="text"
-                            id="multiStepsName"
-                            class="form-control"
-                            name="multiStepsName"
-                            placeholder="John Doe" />
-                          <label for="multiStepsName">Name On Card</label>
-                        </div>
-                      </div>
-                      <div class="col-6 col-md-4">
-                        <div class="form-floating form-floating-outline">
-                          <input
-                            type="text"
-                            id="multiStepsExDate"
-                            class="form-control multi-steps-exp-date"
-                            name="multiStepsExDate"
-                            placeholder="MM/YY" />
-                          <label for="multiStepsExDate">Expiry Date</label>
-                        </div>
-                      </div>
-                      <div class="col-6 col-md-3">
-                        <div class="input-group input-group-merge">
-                          <div class="form-floating form-floating-outline">
-                            <input
-                              type="text"
-                              id="multiStepsCvv"
-                              class="form-control multi-steps-cvv"
-                              name="multiStepsCvv"
-                              maxlength="3"
-                              placeholder="654" />
-                            <label for="multiStepsCvv">CVV Code</label>
-                          </div>
-                          <span class="input-group-text cursor-pointer" id="multiStepsCvvHelp"
-                            ><i
-                              class="mdi mdi-help-circle-outline text-muted"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="top"
-                              title="Card Verification Value"></i
-                          ></span>
-                        </div>
-                      </div>
+                      
                       <div class="col-12 d-flex justify-content-between">
                         <button class="btn btn-secondary btn-prev">
                           <i class="mdi mdi-arrow-left me-sm-1 me-0"></i>

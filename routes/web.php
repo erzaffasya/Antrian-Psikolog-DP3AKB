@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [LandingpageController::class, 'index'])->name('landingpage.index');
+Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('landingpage.index');
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register.create');
 

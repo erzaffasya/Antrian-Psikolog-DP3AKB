@@ -9,6 +9,12 @@
                     <div data-i18n="Dashboard">Dashboard</div>
                 </a>
             </li>
+            <li class="menu-item {{ Request::routeIs('panggilan-antrian.index') ? 'active' : '' }}">
+                <a href="{{ route('panggilan-antrian.index') }}" class="menu-link ">
+                    <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
+                    <div data-i18n="Antrian">Antrian</div>
+                </a>
+            </li>
 
             <li class="menu-item ">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
@@ -28,10 +34,6 @@
                             <div data-i18n="Dokter">Dokter</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ Request::routeIs('.*') ? 'active' : '' }}">
-                        <a href="{{ route('panggilan-antrian.index') }}" class="menu-link">
-                    <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
-                    <div data-i18n="Antrian">Antrian</div>
                 </a>
             </li>
                 </ul>
