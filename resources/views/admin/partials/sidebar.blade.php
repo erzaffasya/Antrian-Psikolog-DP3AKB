@@ -11,7 +11,7 @@
             </li>
             <li class="menu-item {{ Request::routeIs('panggilan-antrian.index') ? 'active' : '' }}">
                 <a href="{{ route('panggilan-antrian.index') }}" class="menu-link ">
-                    <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
+                    <i class="menu-icon tf-icons mdi mdi-human-queue"></i>
                     <div data-i18n="Antrian">Antrian</div>
                 </a>
             </li>
@@ -25,13 +25,31 @@
                     <li class="menu-item {{ Request::routeIs('spesialis.*') ? 'active' : '' }}">
                         <a href="{{ route('spesialis.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
-                            <div data-i18n="Spesialis">Spesialis</div>
+                            <div data-i18n="Layanan">Layanan</div>
                         </a>
                     </li>
                     <li class="menu-item {{ Request::routeIs('dokter.*') ? 'active' : '' }}">
                         <a href="{{ route('dokter.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
-                            <div data-i18n="Dokter">Dokter</div>
+                            <div data-i18n="Psikolog">Psikolog</div>
+                        </a>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="#" class="menu-link">
+                            <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
+                            <div data-i18n="Akun">Akun</div>
+                        </a>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="#" class="menu-link">
+                            <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
+                            <div data-i18n="Riwayat Antrian">Riwayat Antrian</div>
+                        </a>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="#" class="menu-link">
+                            <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
+                            <div data-i18n="Riwayat Tindakan">Riwayat Tindakan</div>
                         </a>
                     </li>
                 </a>

@@ -36,6 +36,9 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/profile', function () {
+    return view('admin.profile');
+})->name('profile');
 //make route for admin page
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('spesialis', SpesialisController::class);
