@@ -211,15 +211,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
       // Social links
       const multiSteps3 = FormValidation.formValidation(stepsValidationFormStep3, {
-        fields: {
-          multiStepsCard: {
-            validators: {
-              notEmpty: {
-                message: 'Please enter card number'
-              }
-            }
-          }
-        },
         plugins: {
           trigger: new FormValidation.plugins.Trigger(),
           bootstrap5: new FormValidation.plugins.Bootstrap5({
@@ -250,10 +241,11 @@ document.addEventListener('DOMContentLoaded', function (e) {
         }
       }).on('core.form.valid', function () {
         // You can submit the form
-        // stepsValidationForm.submit()
+        stepsValidationForm.action = '/register'; // Set the form's action attribute
+        stepsValidationForm.submit();
         // or send the form data to server via an Ajax request
         // To make the demo simple, I just placed an alert
-        alert('Submitted..!!');
+        // alert('Submitted..!!');
       });
 
       stepsValidationNext.forEach(item => {

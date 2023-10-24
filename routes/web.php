@@ -4,11 +4,10 @@ use App\Http\Controllers\AntrianController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\DokterController;
-use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\SpesialisController;
-use App\Http\Controllers\NomorAntrianController;
 use App\Http\Controllers\PanggilanAntrianController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DependantDropdownController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::get('provinces', 'DependentDropdownController@provinces')->name('provinces');
+Route::get('cities', 'DependentDropdownController@cities')->name('cities');
+Route::get('districts', 'DependentDropdownController@districts')->name('districts');
+Route::get('villages', [DependantDropdownController::class, 'villages'])->name('villages');
 
 Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('landingpage.index');
 
