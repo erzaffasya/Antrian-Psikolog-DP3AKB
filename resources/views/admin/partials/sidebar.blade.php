@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="#" class="menu-link">
+                        <a href="{{route('user.index')}}" class="menu-link">
                             <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
                             <div data-i18n="Akun">Akun</div>
                         </a>

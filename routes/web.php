@@ -8,6 +8,8 @@ use App\Http\Controllers\SpesialisController;
 use App\Http\Controllers\PanggilanAntrianController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DependantDropdownController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,6 +48,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('riwayat-tindakan', RiwayatTindakan::class);
     Route::resource('antrian', AntrianController::class);
     Route::resource('panggilan-antrian', PanggilanAntrianController::class);
+    Route::resource('user', UserController::class);
 });
 
 require __DIR__ . '/auth.php';
