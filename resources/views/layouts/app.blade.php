@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" class="light-style layout-menu-fixed layout-compact" dir="ltr" data-theme="theme-default"
-    data-assets-path="../../assets/" data-template="horizontal-menu-template">
+<html lang="en" class="light-style layout-menu-fixed layout-compact">
 
 <head>
     @include('admin.partials.head')

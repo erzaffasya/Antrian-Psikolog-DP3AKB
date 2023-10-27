@@ -24,9 +24,9 @@
 
 <!-- Core CSS -->
 <link rel="stylesheet" href="{{ asset('tadmin/assets/vendor/css/rtl/core.css') }}"
-    class="template-customizer-core-css" />
+    />
 <link rel="stylesheet" href="{{ asset('tadmin/assets/vendor/css/rtl/theme-default.css') }}"
-    class="template-customizer-theme-css')}}" />
+    />
 <link rel="stylesheet" href="{{ asset('tadmin/assets/css/demo.css') }}" />
 
 <!-- Vendors CSS -->
@@ -43,6 +43,6 @@
 <script src="{{ asset('tadmin/assets/vendor/js/helpers.js') }}"></script>
 <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
 <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-<script src="{{ asset('tadmin/aseets/vendor/js/template-customizer.js') }}"></script>
+<script src="{{ asset('tadmin/assets/vendor/js/template-customizer.js') }}"></script>
 <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 <script src="{{ asset('tadmin/assets/js/config.js') }}"></script>

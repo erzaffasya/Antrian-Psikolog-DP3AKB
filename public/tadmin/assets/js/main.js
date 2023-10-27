@@ -205,7 +205,7 @@ if (document.getElementById('layout-menu')) {
         debug: false,
         fallbackLng: 'en',
         backend: {
-          loadPath: assetsPath + 'json/locales/{{lng}}.json'
+          loadPath: 'tadmin/assets/json/locales/{{lng}}.json'
         },
         returnObjects: true
       })
@@ -485,7 +485,7 @@ if (typeof $ !== 'undefined') {
       }
       // Search API AJAX call
       var searchData = $.ajax({
-        url: assetsPath + 'json/' + searchJson, //? Use your own search api instead
+        url: 'tadmin/assets/json/' + searchJson, //? Use your own search api instead
         dataType: 'json',
         async: false
       }).responseJSON;
