@@ -9,7 +9,7 @@
                     </div>
                     <div class="dt-action-buttons text-end pt-3 pt-md-0">
                         <div class="dt-buttons">
-                            <a href="{{ route('spesialis.create') }}" class="btn btn-primary">
+                            <a href="{{ route('dokter.create') }}" class="btn btn-primary">
                                 <span><i class="mdi mdi-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">Tambah
                                         Data</span>
                             </a>
@@ -20,7 +20,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Dokter</th>
+                            <th>Psikolog</th>
                             <th>Batas Maksimal</th>
                             <th>Jam Mulai</th>
                             <th>Jam Selesai</th>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Antrian;
+use App\Models\Spesialis;
 use Illuminate\Http\Request;
 
 class AntrianController extends Controller
@@ -35,6 +36,20 @@ class AntrianController extends Controller
         $request->validate([
             'survey_kepuasan_id' => 'required',
         ]);
+
+        $today = now();
+        $spesialis = Spesialis::where('id', $request->spesialis)->first();
+        $bulan = $today->format('MM');
+        $hari = $today->format('d');
+
+        $urutanMax = Antrian::whereYear('created_at', $today->year)
+            ->whereMonth('created_at', $today->month)
+            ->whereDay('created_at', $today->day)
+            ->where('spesialis', $spesialis->id)
+            ->max('urutan');
+
+        $urutanBaru = $urutanMax + 1;
+        $nomorBaru = $spesialis->kode . '/' . $hari . '/' . $bulan . '/' . str_pad($urutanBaru, 3, '0', STR_PAD_LEFT);
 
         Antrian::create([
             'survey_kepuasan_id' => $request->survey_kepuasan_id,
@@ -81,7 +96,7 @@ class AntrianController extends Controller
         $Antrian->save();
 
         return redirect()->route('Antrian.index')
-        ->with('edit', 'Antrian Berhasil Diedit');
+            ->with('edit', 'Antrian Berhasil Diedit');
     }
 
     /**

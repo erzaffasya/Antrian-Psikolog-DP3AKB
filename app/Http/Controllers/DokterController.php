@@ -23,7 +23,10 @@ class DokterController extends Controller
      */
     public function create()
     {
-        $User = User::all();
+        $User = User::whereNotIn('id', function ($query) {
+            $query->select('users_id')
+                  ->from('dokter');
+        })->where('role','Dokter')->get();
         $Spesialis = Spesialis::all();
         return view('admin.dokter.tambah' , compact('User', 'Spesialis'));
     }
@@ -36,9 +39,9 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
-    //     $request->validate([
-    //         'name' => 'required',
-    //     ]);
+        $request->validate([
+            'users_id' => 'required',
+        ]);
 
         Dokter::create([
             'users_id' => $request->users_id,
@@ -93,7 +96,7 @@ class DokterController extends Controller
         $Dokter->jam_selesai = $request->jam_selesai;
         $Dokter->isLibur = $request->isLibur;
         $Dokter->spesialis_id = $request->spesialis_id;
-        $Dokter->users_id = $request->users_id;
+        // $Dokter->users_id = $request->users_id;
         $Dokter->save();
 
         return redirect()->route('dokter.index')

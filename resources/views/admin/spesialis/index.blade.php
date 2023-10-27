@@ -19,7 +19,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Spesialis</th>
+                            <th>Layanan</th>
                             <th>Deskripsi</th>
                             <th>Action</th>
                         </tr>

@@ -2,7 +2,7 @@
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="py-3 mb-4">
             <span class="text-muted fw-light">Forms/</span>
-            Ubah Data Spesialis
+            Ubah Data
         </h4>
         <div class="row">
             <div class="col-xxl">
@@ -14,15 +14,15 @@
                             @method('PUT')
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label"
-                                    for="basic-icon-default-fullname">Spesialis</label>
+                                    for="basic-icon-default-fullname">Layanan</label>
                                 <div class="col-sm-10">
                                     <div class="input-group input-group-merge">
                                         <span id="basic-icon-default-fullname2" class="input-group-text">
                                             <i class="mdi mdi-subtitles-outline"></i>
                                         </span>
                                         <input type="text" class="form-control" id="basic-icon-default-fullname"
-                                            placeholder="Masukan Spesialis" name="spesialis"
-                                            aria-label="Masukan Spesialis"
+                                            placeholder="Masukan Layanan" name="spesialis"
+                                            aria-label="Masukan Layanan"
                                             aria-describedby="basic-icon-default-fullname2"
                                             value="{{ $spesialis->spesialis }}" />
                                     </div>
