@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AmbilAntrianController;
 use App\Http\Controllers\AntrianController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -49,6 +50,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('antrian', AntrianController::class);
     Route::resource('panggilan-antrian', PanggilanAntrianController::class);
     Route::resource('user', UserController::class);
+    Route::resource('ambil-antrian', AmbilAntrianController::class);
 });
 
 require __DIR__ . '/auth.php';

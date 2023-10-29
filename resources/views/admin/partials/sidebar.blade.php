@@ -16,6 +16,13 @@
                 </a>
             </li>
 
+            <li class="menu-item {{ Request::routeIs('ambil-antrian.index') ? 'active' : '' }}">
+                        <a href="{{ route('ambil-antrian.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons mdi mdi-human-queue"></i>
+                            <div data-i18n="Ambil Antrian">Ambil Antrian</div>
+                        </a>
+                    </li>
+
             <li class="menu-item ">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons mdi mdi-file-document-outline"></i>
@@ -34,6 +41,7 @@
                             <div data-i18n="Psikolog">Psikolog</div>
                         </a>
                     </li>
+
                     <li class="menu-item ">
                         <a href="{{route('user.index')}}" class="menu-link">
                             <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
