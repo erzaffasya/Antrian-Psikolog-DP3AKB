@@ -279,8 +279,8 @@
                         </div>
                     </div>
                     <div class="col-12 text-center">
-                        <a href="javascript:void(0);"
-                            class="btn btn-primary w-100 d-grid waves-effect waves-light">Join the event</a>
+                        <a href="{{ route('ambil-antrian.index') }}"
+                            class="btn btn-primary w-100 d-grid waves-effect waves-light">Ambil Antrian</a>
                     </div>
                 </div>
             </div>

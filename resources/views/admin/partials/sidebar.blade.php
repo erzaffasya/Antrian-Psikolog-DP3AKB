@@ -16,13 +16,6 @@
                 </a>
             </li>
 
-            <li class="menu-item {{ Request::routeIs('ambil-antrian.index') ? 'active' : '' }}">
-                        <a href="{{ route('ambil-antrian.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons mdi mdi-human-queue"></i>
-                            <div data-i18n="Ambil Antrian">Ambil Antrian</div>
-                        </a>
-                    </li>
-
             <li class="menu-item ">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons mdi mdi-file-document-outline"></i>
@@ -43,7 +36,7 @@
                     </li>
 
                     <li class="menu-item ">
-                        <a href="{{route('user.index')}}" class="menu-link">
+                        <a href="{{ route('user.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
                             <div data-i18n="Akun">Akun</div>
                         </a>
@@ -60,15 +53,15 @@
                             <div data-i18n="Riwayat Tindakan">Riwayat Tindakan</div>
                         </a>
                     </li>
-                </a>
+                    </a>
             </li>
-                </ul>
-            </li>
+        </ul>
+        </li>
 
 
 
-            <!-- Charts & Maps -->
-            {{-- <li class="menu-item {{ Request::routeIs('dokter.*') ? 'active' : '' }}">
+        <!-- Charts & Maps -->
+        {{-- <li class="menu-item {{ Request::routeIs('dokter.*') ? 'active' : '' }}">
                 <a href="{{ route('dokter.index') }}" class="menu-link">
                     <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
                     <div data-i18n="Dokter">Dokter</div>
