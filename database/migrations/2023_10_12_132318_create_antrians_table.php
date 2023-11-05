@@ -18,8 +18,9 @@ class CreateAntriansTable extends Migration
             $table->string('nomor')->nullable();
             $table->integer('urut')->nullable();
             $table->date('tanggal')->nullable();
-            $table->string('jenis_layanan')->nullable();
-            $table->foreignId("spesialis")->constrained("spesialis");
+            $table->foreignId("users_id")->constrained("users");
+            $table->foreignId("dokter_id")->constrained("dokter");
+            $table->foreignId("spesialis_id")->constrained("spesialis");
             $table->string('status')->nullable();
             $table->text('keterangan')->nullable();
             $table->boolean('isOnline')->nullable();

@@ -11,6 +11,20 @@
                         <form method="post" action="{{ route('dokter.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
+                                <label class="col-sm-2 form-label" for="basic-icon-default-message">Kode</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group input-group-merge">
+                                        <span id="basic-icon-default-message2" class="input-group-text">
+                                            <i class="mdi mdi-message-outline"></i>
+                                        </span>
+                                        <input id="basic-icon-default-message" class="form-control"
+                                            name="kode" placeholder="Masukan Kode"
+                                            aria-label="Masukan Kode"
+                                            aria-describedby="basic-icon-default-message2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Psikolog</label>
                                 <div class="col-sm-10">
                                     <div class="input-group input-group-merge">
@@ -23,6 +37,21 @@
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-2 form-label" for="basic-icon-default-message">Batas Maksimal</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group input-group-merge">
+                                        <span id="basic-icon-default-message2" class="input-group-text">
+                                            <i class="mdi mdi-message-outline"></i>
+                                        </span>
+                                        <input id="basic-icon-default-message" class="form-control"
+                                            name="batas_maksimal" placeholder="Masukan Batas Maksimal"
+                                            aria-label="Masukan Batas Maksimal"
+                                            aria-describedby="basic-icon-default-message2" />
                                     </div>
                                 </div>
                             </div>
@@ -40,21 +69,6 @@
                                                 <option value="{{ $item->id }}">{{ $item->spesialis }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-sm-2 form-label" for="basic-icon-default-message">Batas Maksimal
-                                    Antrian</label>
-                                <div class="col-sm-10">
-                                    <div class="input-group input-group-merge">
-                                        <span id="basic-icon-default-message2" class="input-group-text">
-                                            <i class="mdi mdi-message-outline"></i>
-                                        </span>
-                                        <input id="basic-icon-default-message" class="form-control"
-                                            name="batas_maksimal" placeholder="Masukan Deskripsi"
-                                            aria-label="Masukan Deskripsi"
-                                            aria-describedby="basic-icon-default-message2" />
                                     </div>
                                 </div>
                             </div>

@@ -45,6 +45,7 @@ class DokterController extends Controller
 
         Dokter::create([
             'users_id' => $request->users_id,
+            'kode' => $request->kode,
             'spesialis_id' => $request->spesialis_id,
             'isLibur' => $request->isLibur,
             'jam_selesai' => $request->jam_selesai,
@@ -96,7 +97,7 @@ class DokterController extends Controller
         $Dokter->jam_selesai = $request->jam_selesai;
         $Dokter->isLibur = $request->isLibur;
         $Dokter->spesialis_id = $request->spesialis_id;
-        // $Dokter->users_id = $request->users_id;
+        $Dokter->kode = $request->kode;
         $Dokter->save();
 
         return redirect()->route('dokter.index')

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Antrian;
+use App\Models\Dokter;
 use App\Models\Spesialis;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AntrianController extends Controller
 {
@@ -33,26 +35,46 @@ class AntrianController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'survey_kepuasan_id' => 'required',
-        ]);
+        // $request->validate([
+        //     'survey_kepuasan_id' => 'required',
+        // ]);
+
+        function bulanRomawi($bulanNumerik)
+        {
+            $romawi = [
+                1 => 'I', 2 => 'II', 3 => 'III', 4 => 'IV', 5 => 'V',
+                6 => 'VI', 7 => 'VII', 8 => 'VIII', 9 => 'IX', 10 => 'X',
+                11 => 'XI', 12 => 'XII'
+            ];
+
+            return $romawi[$bulanNumerik];
+        }
 
         $today = now();
-        $spesialis = Spesialis::where('id', $request->spesialis)->first();
-        $bulan = $today->format('MM');
+        $dokter = Dokter::where('id', $request->dokter_id)->first();
+        $bulan = bulanRomawi($today->format('m')); // Menggunakan fungsi bulanRomawi untuk mengonversi bulan
         $hari = $today->format('d');
+        $tahun = $today->format('Y');
 
         $urutanMax = Antrian::whereYear('created_at', $today->year)
             ->whereMonth('created_at', $today->month)
             ->whereDay('created_at', $today->day)
-            ->where('spesialis', $spesialis->id)
-            ->max('urutan');
+            ->where('dokter_id', $dokter->id)
+            ->max('urut');
 
         $urutanBaru = $urutanMax + 1;
-        $nomorBaru = $spesialis->kode . '/' . $hari . '/' . $bulan . '/' . str_pad($urutanBaru, 3, '0', STR_PAD_LEFT);
+        $nomorBaru = $dokter->kode . '/' . $tahun . '/' . $bulan . '/' . str_pad($urutanBaru, 3, '0', STR_PAD_LEFT);
 
         Antrian::create([
-            'survey_kepuasan_id' => $request->survey_kepuasan_id,
+            'nomor' => $nomorBaru,
+            'urut' => $urutanBaru,
+            'tanggal' => $today,
+            'users_id' => Auth::user()->id,
+            'dokter_id' => $request->dokter_id,
+            'spesialis_id' => $dokter->spesialis_id,
+            'status' => $request->status,
+            'keterangan' => $request->keterangan,
+            'isOnline' => $request->isOnline
         ]);
 
         return redirect()->route('Antrian.index')
@@ -109,7 +131,7 @@ class AntrianController extends Controller
     {
         $Antrian = Antrian::findOrFail($id);
         $Antrian->delete();
-        return redirect()->route('Antrian.index')
+        return back()
             ->with('delete', 'Antrian Berhasil Dihapus');
     }
 }

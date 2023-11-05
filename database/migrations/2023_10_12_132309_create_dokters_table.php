@@ -15,6 +15,7 @@ class CreateDoktersTable extends Migration
     {
         Schema::create('dokter', function (Blueprint $table) {
             $table->id();
+            $table->string('kode')->nullable();
             $table->string('batas_maksimal')->nullable();
             $table->string('jam_mulai')->nullable();
             $table->string('jam_selesai')->nullable();
