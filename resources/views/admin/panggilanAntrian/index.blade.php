@@ -130,287 +130,40 @@
 
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row gy-4 mb-4">
-                            <!-- Congratulations card -->
-                            <!-- <div class="col-xl-4">
-                  <div class="card h-100">
-                    <div class="card-body text-nowrap">
-                      <h4 class="card-title mb-1 d-flex gap-2 flex-wrap">Congratulations Norris! 🎉</h4>
-                      <p class="pb-0">Best seller of the month</p>
-                      <h4 class="text-primary mb-1">$42.8k</h4>
-                      <p class="mb-2 pb-1">78% of target 🚀</p>
-                      <a href="javascript:;" class="btn btn-sm btn-primary">View Sales</a>
-                    </div>
-                    <img
-                      src="../../assets/img/illustrations/trophy.png"
-                      class="position-absolute bottom-0 end-0 me-3"
-                      height="140"
-                      alt="view sales" />
-                  </div>
-                </div> -->
-                            <!--/ Congratulations card -->
-
                             <!-- Total Profit -->
+                            @foreach ($antrianByDokter  as $item)
                             <div class="col-xl-3 col-md-3 col-sm-6">
                                 <div class="card h-100">
                                     <div class="row mt-4">
-                                        <div class="col-6">
+                                        <div class="col-6 text-end d-flex align-items-end">
+                                            <div class="card-body">
+                                                <h3 class="text-warning"><strong>{{ $item->urut}}</strong></h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 text-end d-flex align-items-end">
                                             <div class="card-body">
                                                 <div class="card-info  pb-2">
-                                                    <h3 class="text-warning"><strong>8</strong></h3>
+                                                    <h3 class="text-warning"><strong>{{ $item->urut}}</strong></h3>
                                                     <!-- <div class="badge bg-label-primary rounded-pill lh-xs">Year of 2021</div> -->
                                                 </div>
                                                 <div class="">
-                                                    <h4 class="mb-0 me-2">Jumlah Antrian</h4>
-
+                                                    <h4 class="mb-0 me-2">
+                                                        @php
+                                                            $nextDoctor = \App\Models\User::find($item->dokter_id + 1);
+                                                        @endphp
+                                                        {{ $nextDoctor->name ?? 'Doctor not found' }}</h4>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-6 text-end d-flex align-items-end">
-                                            <div class="card-body">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    width="60" style="fill: orange;">
-                                                    <title>account-multiple</title>
-                                                    <path
-                                                        d="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z" />
-                                                </svg>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                             <!--/ Total Profit -->
-
-                            <!-- Total Expenses -->
-                            <div class="col-xl-3 col-md-3 col-sm-6">
-                                <div class="card h-100">
-                                    <div class="row mt-4">
-                                        <div class="col-8">
-                                            <div class="card-body">
-                                                <div class="card-info  pb-2">
-                                                    <h3 class="" style="color: green"><strong>002</strong></h3>
-                                                    <!-- <div class="badge bg-label-primary rounded-pill lh-xs">Year of 2021</div> -->
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="mb-0 me-2">Antrian Sekarang</h4>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 text-end d-flex align-items-end">
-                                            <div class="card-body">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    width="60" style="fill: green;">
-                                                    <title>account-multiple-check</title>
-                                                    <path
-                                                        d="M19 17V19H7V17S7 13 13 13 19 17 19 17M16 8A3 3 0 1 0 13 11A3 3 0 0 0 16 8M19.2 13.06A5.6 5.6 0 0 1 21 17V19H24V17S24 13.55 19.2 13.06M18 5A2.91 2.91 0 0 0 17.11 5.14A5 5 0 0 1 17.11 10.86A2.91 2.91 0 0 0 18 11A3 3 0 0 0 18 5M7.34 8.92L8.5 10.33L3.75 15.08L1 12.08L2.16 10.92L3.75 12.5L7.34 8.92" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/ Total Expenses -->
-
-                            <!-- Total Profit chart -->
-                            <div class="col-xl-3 col-md-3 col-sm-6">
-                                <div class="card">
-                                    <div class="row mt-4">
-                                        <div class="col-8">
-                                            <div class="card-body">
-                                                <div class="card-info  pb-2">
-                                                    <h3 style="color:blue"><strong>045</strong></h3>
-                                                    <!-- <div class="badge bg-label-primary rounded-pill lh-xs">Year of 2021</div> -->
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="mb-0 me-2">Antrian Selanjutnya</h4>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 text-end d-flex align-items-end">
-                                            <div class="card-body">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    width="60" style="fill: blue;">
-                                                    <title>account-multiple-plus</title>
-                                                    <path
-                                                        d="M19 17V19H7V17S7 13 13 13 19 17 19 17M16 8A3 3 0 1 0 13 11A3 3 0 0 0 16 8M19.2 13.06A5.6 5.6 0 0 1 21 17V19H24V17S24 13.55 19.2 13.06M18 5A2.91 2.91 0 0 0 17.11 5.14A5 5 0 0 1 17.11 10.86A2.91 2.91 0 0 0 18 11A3 3 0 0 0 18 5M8 10H5V7H3V10H0V12H3V15H5V12H8Z" />
-                                                </svg>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/ Total Profit chart -->
-
-                            <!-- Total Growth chart -->
-                            <div class="col-xl-3 col-md-3 col-sm-6">
-                                <div class="card h-100">
-                                    <div class="row mt-4">
-                                        <div class="col-6">
-                                            <div class="card-body">
-                                                <div class="card-info  pb-2">
-                                                    <h3 class="" style="color:red"><strong>4</strong></h3>
-                                                    <!-- <div class="badge bg-label-primary rounded-pill lh-xs">Year of 2021</div> -->
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="mb-0 me-2">Sisa Antrian</h4>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 text-end d-flex align-items-end">
-                                            <div class="card-body">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    width="60" style="fill: red;">
-                                                    <title>account</title>
-                                                    <path
-                                                        d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
-                                                </svg>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/ Total Sales chart -->
                         </div>
-
-                        <div class="row gy-4 mb-4">
-
-                            <div class="col-xl-3 col-md-3 col-sm-6">
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-5"
-                                            style="background-color: #666cff; border-radius: 12px 0 0 12px;">
-                                            <div class="card-body">
-                                                <h2 class=""
-                                                    style="color:white; padding-left: 12px; padding-top: 26px;">003
-                                                </h2>
-                                            </div>
-                                        </div>
-                                        <div class="col-7">
-                                            <div class="card-body">
-                                                <div class="card-info mb-4 mt-2">
-                                                    <h4 style="color: #666cff;"><b>Loket 1</b></h4>
-                                                </div>
-                                                <div class="">
-                                                    <h3>2</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-
-                            <div class="col-lg-9 col-12">
-                                <div class="card">
-                                    <div class="table-responsive rounded-3">
-                                        <table class="datatables-crm table table-sm">
-                                            <thead class="table-light">
-                                                <tr>
-                                                    <th></th>
-                                                    <th class="py-3">Nomor Antrian</th>
-                                                    <th class="py-3">Loket</th>
-                                                    <th></th>
-                                                    <th class="py-3">Panggil</th>
-                                                </tr>
-                                            </thead>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-xl-3 col-md-3 col-sm-6">
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-5"
-                                            style="background-color: #e91e63; border-radius: 12px 0 0 12px;">
-                                            <div class="card-body">
-                                                <h2 class=""
-                                                    style="color:white; padding-left: 12px; padding-top: 26px;">007
-                                                </h2>
-                                            </div>
-                                        </div>
-                                        <div class="col-7">
-                                            <div class="card-body">
-                                                <div class="card-info mb-4 mt-2">
-                                                    <h4 style="color: #e91e63;"><b>Loket 2</b></h4>
-                                                </div>
-                                                <div class="">
-                                                    <h3>1</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="row gy-4 mb-4">
-                            <div class="col-xl-3 col-md-3 col-sm-6">
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-5"
-                                            style="background-color: #009688; border-radius: 12px 0 0 12px;">
-                                            <div class="card-body">
-                                                <h2 class=""
-                                                    style="color:white; padding-left: 12px; padding-top: 26px;">003
-                                                </h2>
-                                            </div>
-                                        </div>
-                                        <div class="col-7">
-                                            <div class="card-body">
-                                                <div class="card-info mb-4 mt-2">
-                                                    <h4 style="color: #009688;"><b>Loket 3</b></h4>
-                                                </div>
-                                                <div class="">
-                                                    <h3>6</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row gy-4 mb-4">
-                            <div class="col-xl-3 col-md-3 col-sm-6">
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-5"
-                                            style="background-color: #00bcd4; border-radius: 12px 0 0 12px;">
-                                            <div class="card-body">
-                                                <h2 class=""
-                                                    style="color:white; padding-left: 12px; padding-top: 26px;">005
-                                                </h2>
-                                            </div>
-                                        </div>
-                                        <div class="col-7">
-                                            <div class="card-body">
-                                                <div class="card-info mb-4 mt-2">
-                                                    <h4 style="color: #00bcd4;"><b>Loket 4</b></h4>
-                                                </div>
-                                                <div class="">
-                                                    <h3>5</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
                     </div>
-
-
                     <!--/ Content -->
 
                     <div class="content-backdrop fade"></div>

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AmbilAntrianController;
 use App\Http\Controllers\AntrianController;
+use App\Http\Controllers\antrianDokterController;
+use App\Http\Controllers\AntrianDokterController as ControllersAntrianDokterController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\DokterController;
@@ -42,16 +44,21 @@ Route::get('/dashboard', function () {
 Route::get('/profile', function () {
     return view('admin.profile');
 })->name('profile');
+
+
 //make route for admin page
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('spesialis', SpesialisController::class);
     Route::resource('dokter', DokterController::class);
     Route::resource('riwayat-tindakan', RiwayatTindakan::class);
     Route::resource('antrian', AntrianController::class);
-    Route::resource('panggilan-antrian', PanggilanAntrianController::class);
     Route::resource('user', UserController::class);
     Route::resource('ambil-antrian', AmbilAntrianController::class);
 });
+
+Route::resource('panggilan-antrian', PanggilanAntrianController::class);
+
+Route::resource('antrian-dokter', antrianDokterController::class);
 
 require __DIR__ . '/auth.php';
 

@@ -16,8 +16,8 @@ class Dokter extends Model
     public function users()
     {
         return $this->belongsTo(User::class, 'users_id', 'id');
-    }    
-    
+    }
+
     public function spesialis()
     {
         return $this->belongsTo(Spesialis::class, 'spesialis_id', 'id');

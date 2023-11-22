@@ -21,7 +21,6 @@
                                         <select class="form-select" name="dokter_id" id="exampleFormControlSelect1"
                                             aria-label="Default select example" required>
                                             @foreach ($Dokter as $item)
-                                                <option value="">Pilih Psikolog</option>
                                                 <option value="{{ $item->id }}">{{ $item->users->name }} - {{ $item->spesialis->spesialis }}</option>
                                             @endforeach
                                         </select>
