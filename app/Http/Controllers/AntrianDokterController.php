@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Antrian;
 
 use Illuminate\Http\Request;
 
-class PanggilanAntrianController extends Controller
+class AntrianDokterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class PanggilanAntrianController extends Controller
      */
     public function index()
     {
-        $Antrian = Antrian::getAllAntrian();
-        $antrianByDokter = Antrian::getAntrianByDokter();
-        return view('admin.panggilanAntrian.index', compact('Antrian', 'antrianByDokter'));
+        return view('antrianDokter.index');
     }
 
     /**

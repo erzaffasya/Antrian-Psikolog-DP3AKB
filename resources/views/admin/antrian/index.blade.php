@@ -26,7 +26,13 @@
                                 <td>{{ $item->nomor }}</td>
                                 <td>{{ $item->tanggal }}</td>
                                 <td>{{ $item->users->name }}</td>
-                                <td>{{ $item->dokter->name }}</td>
+                                <td>
+                                    @php
+                                        $nextDoctor = \App\Models\User::find($item->dokter_id + 1);
+                                    @endphp
+                                    {{ $nextDoctor->name ?? 'Doctor not found' }}
+                                </td>
+
                                 <td>
                                     <div class="dropdown">
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"

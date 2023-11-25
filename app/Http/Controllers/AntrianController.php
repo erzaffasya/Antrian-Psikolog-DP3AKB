@@ -12,7 +12,8 @@ class AntrianController extends Controller
 {
     public function index()
     {
-        $Antrian = Antrian::all();
+        $Antrian = Antrian::with('dokter')->get();
+
         return view('admin.Antrian.index', compact('Antrian'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -77,7 +78,7 @@ class AntrianController extends Controller
             'isOnline' => $request->isOnline
         ]);
 
-        return redirect()->route('Antrian.index')
+        return redirect()->route('antrian.index')
             ->with('success', 'Antrian Berhasil Ditambahkan');
     }
 
