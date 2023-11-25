@@ -63,7 +63,7 @@ class AntrianController extends Controller
             ->max('urut');
 
         $urutanBaru = $urutanMax + 1;
-        $nomorBaru = $dokter->kode . '/' . $tahun . '/' . $bulan . '/' . str_pad($urutanBaru, 3, '0', STR_PAD_LEFT);
+        $nomorBaru = $dokter->kode . '/' . $tahun . '/' . $bulan . $hari . '/' . str_pad($urutanBaru, 3, '0', STR_PAD_LEFT);
 
         Antrian::create([
             'nomor' => $nomorBaru,
