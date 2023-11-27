@@ -13,7 +13,6 @@ class AntrianController extends Controller
     public function index()
     {
         $Antrian = Antrian::with('dokter')->get();
-
         return view('admin.Antrian.index', compact('Antrian'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

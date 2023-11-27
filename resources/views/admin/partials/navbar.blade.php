@@ -75,8 +75,10 @@
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <span class="fw-medium d-block">John Doe</span>
-                                        <small class="text-muted">Admin</small>
+                                    @if(Auth::check()) <!-- Check if a user is logged in -->
+                                        <span class="fw-medium d-block">{{ Auth::user()->name }}</span> <!-- Display logged-in user's name -->
+                                        <small class="text-muted">{{ Auth::user()->role }}</small> <!-- Display logged-in user's role -->
+                                    @endif
                                     </div>
                                 </div>
                             </a>

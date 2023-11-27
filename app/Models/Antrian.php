@@ -30,10 +30,39 @@ class Antrian extends Model
         return self::all();
     }
 
+    // public static function getAntrianByDokter()
+    // {
+    // return self::select('dokter_id', 'status', DB::raw('MAX(urut) as urut'))
+    //     ->whereIn('status', ['P', 'R', 'S']) // Include 'S' status
+    //     ->groupBy('dokter_id', 'status')
+    //     ->get()
+    //     ->groupBy('dokter_id')
+    //     ->map(function ($items) {
+    //         // Check for 'P' status first, then 'R', and finally 'S'
+    //         return $items->firstWhere('status', 'P')
+    //             ?? $items->firstWhere('status', 'R')
+    //             ?? $items->firstWhere('status', 'S');
+    //     });
+    // }
+
     public static function getAntrianByDokter()
     {
-        return self::select('dokter_id', DB::raw('MIN(urut) as urut'), DB::raw('count(*) as total'))
-        ->groupBy('dokter_id')
-        ->get();
+        // Fetch all entries with 'P', 'R', and 'S' status
+        $queues = self::select('dokter_id', 'status', 'urut')
+            ->whereIn('status', ['P', 'R', 'S'])
+            ->orderBy('urut', 'asc') // Order by 'urut' in ascending order
+            ->get()
+            ->groupBy('dokter_id');
+
+        // Map each doctor to their current ('P') and next ('R') queues
+        return $queues->map(function ($items) {
+            return [
+                'current' => $items->firstWhere('status', 'P'), // Current queue
+                'next' => $items->where('status', 'R')->min('urut') // Lowest 'R' queue number
+            ];
+        });
     }
+
+
+
 }

@@ -125,46 +125,44 @@
             <div class="layout-page">
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
-
-                    <!-- Content -->
-
-                    <div class="container-xxl flex-grow-1 container-p-y">
-                        <div class="row gy-4 mb-4">
-                            <!-- Total Profit -->
-                            @foreach ($antrianByDokter  as $item)
-                            <div class="col-xl-3 col-md-3 col-sm-6">
-                                <div class="card h-100">
-                                    <div class="row mt-4">
-                                        <div class="col-6 text-end d-flex align-items-end">
-                                            <div class="card-body">
-                                                <h3 class="text-warning"><strong>{{ $item->urut}}</strong></h3>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-6 text-end d-flex align-items-end">
-                                            <div class="card-body">
-                                                <div class="card-info  pb-2">
-                                                    <h3 class="text-warning"><strong>{{ $item->urut}}</strong></h3>
-                                                    <!-- <div class="badge bg-label-primary rounded-pill lh-xs">Year of 2021</div> -->
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="mb-0 me-2">
-                                                        @php
-                                                            $nextDoctor = \App\Models\User::find($item->dokter_id + 1);
-                                                        @endphp
-                                                        {{ $nextDoctor->name ?? 'Doctor not found' }}</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                            <!--/ Total Profit -->
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row gy-4 mb-4">
+        <!-- Queue Cards -->
+        @foreach ($AntrianByDokter as $dokterId => $queues)
+            <div class="col-xl-3 col-md-3 col-sm-6">
+                <div class="card h-100 shadow">
+                    <div class="card-header bg-primary text-white">
+                        @php
+                            // Note: Ensure that dokter_id is correctly used here, without adding 1
+                            $doctor = \App\Models\User::find($dokterId + 1);
+                        @endphp
+                        <p class="fs-5 text-white">Dr. {{ $doctor->name ?? 'Doctor not found' }}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center mb-3">
+                            <h6>Antrian Sekarang</h6>
+                            @if(isset($queues['current']) && $queues['current']->status === "P")
+                                <p class="fs-3 fw-bold text-primary">{{ $queues['current']->urut }}</p>
+                            @endif
+                        </div>
+                        <div class="text-center mb-3">
+                            <h6>Antrian Selanjutnya</h6>
+                            @if(isset($queues['next']))
+                                <p class="fs-3 fw-bold text-success">{{ $queues['next'] }}</p>
+                            @endif
                         </div>
                     </div>
-                    <!--/ Content -->
+                </div>
+            </div>
+        @endforeach
+        <!--/ Queue Cards -->
+    </div>
+</div>
+<!--/ Content -->
+
+
+
 
                     <div class="content-backdrop fade"></div>
                 </div>
@@ -173,5 +171,11 @@
         </div>
     </div>
 
+    <script>
+// Reload the page every X milliseconds (e.g., 30000 ms = 30 seconds)
+setTimeout(function(){
+    window.location.reload(1);
+}, 10000);
+</script>
 
 </x-app-layout>

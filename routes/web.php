@@ -54,11 +54,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('antrian', AntrianController::class);
     Route::resource('user', UserController::class);
     Route::resource('ambil-antrian', AmbilAntrianController::class);
-});
 
 Route::resource('panggilan-antrian', PanggilanAntrianController::class);
 
-Route::resource('antrian-dokter', antrianDokterController::class);
+Route::resource('antrian-dokter', AntrianDokterController::class);
+});
+
 
 require __DIR__ . '/auth.php';
 
