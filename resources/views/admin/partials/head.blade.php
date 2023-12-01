@@ -7,7 +7,7 @@
 <meta name="description" content="Antrian Psikolog DP3AKB" />
 
 <!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="{{ asset('tadmin/assets/img/favicon/favicon.ico') }}" />
+<link rel="icon" type="image/x-icon" href="{{asset('tadmin/assets/img/pemkot.png')}}" />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />

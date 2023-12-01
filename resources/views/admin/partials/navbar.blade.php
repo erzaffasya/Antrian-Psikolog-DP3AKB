@@ -85,7 +85,7 @@
                         <li>
                             <div class="dropdown-divider"></div>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a class="dropdown-item" href="{{route('profile')}}">
                                 <i class="mdi mdi-account-outline me-2"></i>
                                 <span class="align-middle">My Profile</span>
@@ -99,7 +99,7 @@
                         </li>
                         <li>
                             <div class="dropdown-divider"></div>
-                        </li>
+                        </li> --}}
                         <li>
                             <a class="dropdown-item" href="{{route('logout')}}" target="_blank">
                                 <i class="mdi mdi-logout me-2"></i>

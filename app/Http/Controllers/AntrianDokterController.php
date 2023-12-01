@@ -15,8 +15,7 @@ class AntrianDokterController extends Controller
      */
     public function index()
     {
-        $dokterId = Auth::id() - 1;
-
+        $dokterId = Auth::user()->dokter->id;
         $AntrianForDokter = Antrian::getAntrianForDokter($dokterId);
         // dd($AntrianForDokter);
         return view('antrianDokter.index', compact('AntrianForDokter'));
