@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Antrian;
 use App\Models\Dokter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AmbilAntrianController extends Controller
 {
@@ -14,8 +16,20 @@ class AmbilAntrianController extends Controller
      */
     public function index()
     {
+        $today = now();
         $Dokter = Dokter::all();
-        return view('admin.ambilAntrian.index' , compact('Dokter'));
+        $Antrian = Antrian::whereYear('created_at', $today->year)
+            ->whereMonth('created_at', $today->month)
+            ->whereDay('created_at', $today->day)
+            ->where('users_id', Auth::user()->id)->first();
+
+        if ($Antrian != null) {
+            $pdf = app('dompdf.wrapper');
+            $pdf->loadView('admin.antrian.cetakantrian', compact('Antrian'));
+            return $pdf->download($Antrian->nomor . '.pdf');
+        } else {
+            return view('admin.ambilAntrian.index', compact('Dokter'));
+        }
     }
 
     /**
@@ -25,7 +39,18 @@ class AmbilAntrianController extends Controller
      */
     public function create()
     {
-        return view('admin.ambilAntrian.create');
+        $today = now();
+        $Antrian = Antrian::whereYear('created_at', $today->year)
+            ->whereMonth('created_at', $today->month)
+            ->whereDay('created_at', $today->day)
+            ->where('users_id', Auth::user()->id)->first();
+        if ($Antrian != null) {
+            $pdf = app('dompdf.wrapper');
+            $pdf->loadView('admin.antrian.cetakantrian', compact('Antrian'));
+            return $pdf->download($Antrian->nomor . '.pdf');
+        } else {
+            return view('admin.ambilAntrian.create');
+        }
     }
 
     /**

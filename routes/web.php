@@ -36,6 +36,7 @@ Route::get('/register', [RegisteredUserController::class, 'create'])->name('regi
 
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('register.create');
 
+Route::get('/cetak-antrian', [AntrianController::class, 'cetakAntrian'])->name('cetak-antrian');
 //make route for admin page
 Route::get('/dashboard', function () {
     return view('admin.dashboard');

@@ -140,4 +140,17 @@ class AntrianController extends Controller
         return back()
             ->with('delete', 'Antrian Berhasil Dihapus');
     }
+
+    public function cetakAntrian()
+    {
+
+        $today = now();
+        $Antrian = Antrian::whereYear('created_at', $today->year)
+            ->whereMonth('created_at', $today->month)
+            ->whereDay('created_at', $today->day)
+            ->where('users_id', Auth::user()->id)->first();
+
+        return view('admin.antrian.cetakantrian', compact('Antrian'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 }
