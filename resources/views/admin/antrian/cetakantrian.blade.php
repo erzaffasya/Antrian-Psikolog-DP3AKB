@@ -34,10 +34,10 @@
         <p>ANTRIAN PUSPAGA</p>
         <h4>{{ $Antrian->created_at->format('d M Y') }}</h4>
         <hr>
-        <h1>{{ $Antrian->nomor }}</h1>
+        <h2>{{ $Antrian->nomor }}</h2>
         <hr>
-        <h2>NOMOR ANTRIAN</h2>
-        <h2>{{ $Antrian->urut }}</h2>
+        <h1>NOMOR URUT</h1>
+        <h1>{{ $Antrian->urut }}</h1>
 
     </div>
 </body>
