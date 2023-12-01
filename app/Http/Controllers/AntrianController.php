@@ -12,7 +12,13 @@ class AntrianController extends Controller
 {
     public function index()
     {
-        $Antrian = Antrian::with('dokter')->orderBy('users_id', 'asc')->get();
+        $Antrian = new Antrian();
+        if (Auth::user()->role == 'Member') {
+            $Antrian = Antrian::with('dokter')->orderBy('users_id', 'asc')->get();
+        } else {
+            $Antrian = Antrian::with('dokter')->where('users_id', 1)->orderBy('users_id', 'asc')->get();
+        }
+
         return view('admin.antrian.index', compact('Antrian'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -63,7 +69,7 @@ class AntrianController extends Controller
             ->max('urut');
 
         $urutanBaru = $urutanMax + 1;
-        $nomorBaru = $dokter->kode . '/' . $tahun . '/' . $bulan . $hari . '/' . str_pad($urutanBaru, 3, '0', STR_PAD_LEFT);
+        $nomorBaru = $dokter->kode . '/' . $tahun . '/' . $bulan . '-' . $hari . '/' . str_pad($urutanBaru, 3, '0', STR_PAD_LEFT);
 
         Antrian::create([
             'nomor' => $nomorBaru,
