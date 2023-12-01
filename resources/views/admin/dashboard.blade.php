@@ -10,20 +10,25 @@
                         <div class="col-md-6 order-2 order-md-1">
                             <div class="card-body">
                                 <h4 class="card-title pb-xl-2">Selamat Datang {{ Auth::user()->name }}!🎉</h4>
-                                <p class="card-text">Selamat datang di PUSPAGA, silahkan ambil antrian untuk mendapatkan pelayanan</p>
-                                <a href="{{ route('ambil-antrian.index') }}" class="btn btn-primary">Ambil Antrian</a>
+                                <p class="card-text">Selamat datang di PUSPAGA, silahkan ambil antrian untuk mendapatkan
+                                    pelayanan</p>
+                                @if (Auth::user()->role == 'Member')
+                                    <a href="{{ route('ambil-antrian.index') }}" class="btn btn-primary">Ambil
+                                        Antrian</a>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-6 text-center text-md-end order-1 order-md-2">
                             <div class="card-body pb-0 px-0 px-md-4 ps-0">
-                                <img src="{{ asset('tadmin/assets/img/illustrations/illustration-john-light.png') }}" height="180" alt="View Profile" />
+                                <img src="{{ asset('tadmin/assets/img/illustrations/illustration-john-light.png') }}"
+                                    height="180" alt="View Profile" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!--/ Gamification Card -->
-    </div>
-    <!--/ Content -->
+        </div>
+        <!--/ Content -->
 
 </x-app-layout>
