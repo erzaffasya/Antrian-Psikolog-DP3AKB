@@ -62,9 +62,9 @@
                 <div class="card p-2">
                     <!-- Logo -->
                     <div class="app-brand justify-content-center mt-5">
-                        <a href="#" class="app-brand-logo demo">
+                        {{-- <a href="#" class="app-brand-logo demo">
                             <span class="app-brand-text demo text-heading fw-bold">PUSPAGA</span>
-                        </a>
+                        </a> --}}
                     </div>
                     <!-- /Logo -->
 
