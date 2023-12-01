@@ -2,8 +2,7 @@
 
 use App\Http\Controllers\AmbilAntrianController;
 use App\Http\Controllers\AntrianController;
-use App\Http\Controllers\antrianDokterController;
-use App\Http\Controllers\AntrianDokterController as ControllersAntrianDokterController;
+use App\Http\Controllers\AntrianDokterController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ChangeStatusController;

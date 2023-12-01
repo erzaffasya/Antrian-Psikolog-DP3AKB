@@ -13,7 +13,7 @@ class AntrianController extends Controller
     public function index()
     {
         $Antrian = Antrian::with('dokter')->orderBy('users_id', 'asc')->get();
-        return view('admin.Antrian.index', compact('Antrian'))
+        return view('admin.antrian.index', compact('Antrian'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -24,7 +24,7 @@ class AntrianController extends Controller
      */
     public function create()
     {
-        return view('admin.Antrian.tambah');
+        return view('admin.antrian.tambah');
     }
 
     /**
@@ -101,7 +101,7 @@ class AntrianController extends Controller
     public function edit($id)
     {
         $Antrian = Antrian::find($id);
-        return view('admin.Antrian.edit', compact('Antrian'));
+        return view('admin.antrian.edit', compact('Antrian'));
     }
 
     /**
