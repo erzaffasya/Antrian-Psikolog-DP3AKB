@@ -10,16 +10,13 @@
                         <div class="col-md-6 order-2 order-md-1">
                             <div class="card-body">
                                 <h4 class="card-title pb-xl-2">Selamat Datang {{ Auth::user()->name }}!🎉</h4>
-                                <p class="mb-0">You have done <span class="h6 mb-0">68%</span>😎 more sales
-                                    today.</p>
-                                <p>Check your new badge in your profile.</p>
-                                <a href="javascript:;" class="btn btn-primary">View Profile</a>
+                                <p class="card-text">Selamat datang di PUSPAGA, silahkan ambil antrian untuk mendapatkan pelayanan</p>
+                                <a href="{{ route('ambil-antrian.index') }}" class="btn btn-primary">Ambil Antrian</a>
                             </div>
                         </div>
                         <div class="col-md-6 text-center text-md-end order-1 order-md-2">
                             <div class="card-body pb-0 px-0 px-md-4 ps-0">
-                                <img src="{{ asset('tadmin/assets/img/illustrations/illustration-john-light.png') }}"
-                                    height="180" alt="View Profile" />
+                                <img src="{{ asset('tadmin/assets/img/illustrations/illustration-john-light.png') }}" height="180" alt="View Profile" />
                             </div>
                         </div>
                     </div>
@@ -31,7 +28,7 @@
             <!-- Project Statistics -->
             <div class="col-md-6 col-xl-4">
                 <div class="card h-100">
-                    <div class="card-header d-flex align-items-center justify-content-between">
+                    <!-- <div class="card-header d-flex align-items-center justify-content-between">
                         <h5 class="card-title m-0 me-2">Dokter Tersedia</h5>
                         <div class="dropdown">
                             <button class="btn p-0" type="button" id="projectStatus" data-bs-toggle="dropdown"
@@ -137,7 +134,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!--/ Project Statistics -->
@@ -148,7 +145,7 @@
                     <!-- Total Revenue chart -->
                     <div class="col-md-6 col-sm-6">
                         <div class="card h-100">
-                            <div class="card-body">
+                            <!-- <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
                                     <div class="avatar">
                                         <div class="avatar-initial bg-label-primary rounded">
@@ -165,14 +162,14 @@
                                     <p class="mb-lg-2 mb-xl-3">Total Kunjungan Offline</p>
                                     <div class="badge bg-label-secondary rounded-pill">Hari Ini</div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!--/ Total Revenue chart -->
 
                     <div class="col-md-6 col-sm-6">
                         <div class="card h-100">
-                            <div class="card-body">
+                            <!-- <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
                                     <div class="avatar">
                                         <div class="avatar-initial bg-label-success rounded">
@@ -189,14 +186,14 @@
                                     <p class="text-body">Total Sales</p>
                                     <div class="badge bg-label-secondary rounded-pill mt-1">Last Six Month</div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
                     <div class="col-md-6 col-sm-6">
                         <div class="card h-100">
                             <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                                <!-- <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
                                     <div class="avatar">
                                         <div class="avatar-initial bg-label-primary rounded">
                                             <i class="mdi mdi-cart-plus mdi-24px"></i>
@@ -211,7 +208,7 @@
                                     <h5 class="mb-2">155k</h5>
                                     <p class="mb-lg-2 mb-xl-3">Total Kunjungan Offline</p>
                                     <div class="badge bg-label-secondary rounded-pill">Hari Ini</div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -219,7 +216,7 @@
                     <div class="col-md-6 col-sm-6">
                         <div class="card h-100">
                             <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                                <!-- <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
                                     <div class="avatar">
                                         <div class="avatar-initial bg-label-primary rounded">
                                             <i class="mdi mdi-cart-plus mdi-24px"></i>
@@ -229,12 +226,12 @@
                                         <p class="mb-0 text-success me-1">+22%</p>
                                         <i class="mdi mdi-chevron-up text-success"></i>
                                     </div>
-                                </div>
-                                <div class="card-info mt-4 pt-1 mt-lg-1 mt-xl-4">
+                                </div> -->
+                                <!-- <div class="card-info mt-4 pt-1 mt-lg-1 mt-xl-4">
                                     <h5 class="mb-2">155k</h5>
                                     <p class="mb-lg-2 mb-xl-3">Total Kunjungan Offline</p>
                                     <div class="badge bg-label-secondary rounded-pill">Hari Ini</div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -247,17 +244,15 @@
             <div class="col-12 col-xl-4 col-md-6">
                 <div class="card-body">
                     <div class="bg-label-info rounded-3 text-center mb-3 pt-4">
-                        <img class="img-fluid" src="{{asset('tadmin/assets/img/illustrations/card-ratings-illustration.png')}}"
-                            alt="Boy card image" width="130">
+                        <img class="img-fluid" src="{{asset('tadmin/assets/img/illustrations/card-ratings-illustration.png')}}" alt="Boy card image" width="130">
                     </div>
                     <h4 class="mb-2 pb-1">Ambil Antrian</h4>
-                    <p>Next Generation Frontend Architecture Using Layout Engine And React Native Web.</p>
+                    <p class="text-muted">Ambil Antrian untuk mendapatkan pelayanan</p>
                     <div class="row mb-3 g-3">
                         <div class="col-6">
                             <div class="d-flex">
                                 <div class="avatar flex-shrink-0 me-2">
-                                    <span class="avatar-initial rounded bg-label-primary"><i
-                                            class="mdi mdi-calendar-alert mdi-24px"></i></span>
+                                    <span class="avatar-initial rounded bg-label-primary"><i class="mdi mdi-calendar-alert mdi-24px"></i></span>
                                 </div>
                                 <div>
                                     <h6 class="mb-0 text-nowrap">17 Nov 23</h6>
@@ -268,8 +263,7 @@
                         <div class="col-6">
                             <div class="d-flex">
                                 <div class="avatar flex-shrink-0 me-2">
-                                    <span class="avatar-initial rounded bg-label-primary"><i
-                                            class="mdi mdi-clock-time-four-outline mdi-24px"></i></span>
+                                    <span class="avatar-initial rounded bg-label-primary"><i class="mdi mdi-clock-time-four-outline mdi-24px"></i></span>
                                 </div>
                                 <div>
                                     <h6 class="mb-0 text-nowrap">32 minutes</h6>
@@ -279,8 +273,7 @@
                         </div>
                     </div>
                     <div class="col-12 text-center">
-                        <a href="{{ route('ambil-antrian.index') }}"
-                            class="btn btn-primary w-100 d-grid waves-effect waves-light">Ambil Antrian</a>
+                        <a href="{{ route('ambil-antrian.index') }}" class="btn btn-primary w-100 d-grid waves-effect waves-light">Ambil Antrian</a>
                     </div>
                 </div>
             </div>

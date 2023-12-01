@@ -2,7 +2,7 @@
     <div class="container-xxl">
         <div class="navbar-brand app-brand demo d-none d-xl-flex py-0 me-4">
             <a href="index.html" class="app-brand-link gap-2">
-                <span class="app-brand-logo demo">
+                <!-- <span class="app-brand-logo demo">
                     <span style="color: var(--bs-primary)">
                         <svg width="268" height="150" viewBox="0 0 38 20" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -38,8 +38,9 @@
                             </defs>
                         </svg>
                     </span>
-                </span>
-                <span class="app-brand-text demo menu-text fw-bold">Antrian Psikolog</span>
+                </span> -->
+                <img src="{{asset('tadmin/assets/img/pemkot.png')}}" width="30px" alt="logo" class="logo-img">
+                <span class="app-brand-text demo menu-text fw-bold">PUSPAGA</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-xl-none">
@@ -58,8 +59,7 @@
 
                 <!-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                    <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                        data-bs-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                         <div class="avatar avatar-online">
                             <img src="{{asset('tadmin/assets/img/avatars/1.png')}}" alt class="w-px-40 h-auto rounded-circle" />
                         </div>
@@ -70,15 +70,14 @@
                                 <div class="d-flex">
                                     <div class="flex-shrink-0 me-3">
                                         <div class="avatar avatar-online">
-                                            <img src="{{asset('tadmin/assets/img/avatars/1.png')}}" alt
-                                                class="w-px-40 h-auto rounded-circle" />
+                                            <img src="{{asset('tadmin/assets/img/avatars/1.png')}}" alt class="w-px-40 h-auto rounded-circle" />
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
-                                    @if(Auth::check()) <!-- Check if a user is logged in -->
+                                        @if(Auth::check()) <!-- Check if a user is logged in -->
                                         <span class="fw-medium d-block">{{ Auth::user()->name }}</span> <!-- Display logged-in user's name -->
                                         <small class="text-muted">{{ Auth::user()->role }}</small> <!-- Display logged-in user's role -->
-                                    @endif
+                                        @endif
                                     </div>
                                 </div>
                             </a>
@@ -115,8 +114,7 @@
 
         <!-- Search Small Screens -->
         <div class="navbar-search-wrapper search-input-wrapper container-xxl d-none">
-            <input type="text" class="form-control search-input border-0" placeholder="Search..."
-                aria-label="Search..." />
+            <input type="text" class="form-control search-input border-0" placeholder="Search..." aria-label="Search..." />
             <i class="mdi mdi-close search-toggler cursor-pointer"></i>
         </div>
     </div>
