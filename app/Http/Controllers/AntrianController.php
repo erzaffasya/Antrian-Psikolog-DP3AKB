@@ -13,12 +13,13 @@ class AntrianController extends Controller
     public function index()
     {
         $Antrian = new Antrian();
-        if (Auth::user()->role == 'Member') {
-            $Antrian = Antrian::with('dokter')->orderBy('users_id', 'asc')->get();
+        if (Auth::user()->role == 'Admin') {
+            $Antrian = Antrian::with('dokter')->orderBy('created_at', 'desc')->get();
+        } else if (Auth::user()->role == 'Dokter') {
+            $Antrian = Antrian::with('dokter')->where('dokter_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
         } else {
-            $Antrian = Antrian::with('dokter')->where('users_id', 1)->orderBy('users_id', 'asc')->get();
+            $Antrian = Antrian::with('dokter')->where('users_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
         }
-
         return view('admin.antrian.index', compact('Antrian'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
