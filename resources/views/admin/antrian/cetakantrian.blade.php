@@ -36,7 +36,7 @@
         <hr>
         <h2>{{ $Antrian->nomor }}</h2>
         <hr>
-        <h1>NOMOR URUT</h1>
+        <h3>NOMOR URUT</h3>
         <h1><b>{{ $Antrian->urut }}</b></h1>
 
     </div>
