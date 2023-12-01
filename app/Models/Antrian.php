@@ -63,6 +63,19 @@ class Antrian extends Model
         });
     }
 
+    public static function getAntrianForDokter($dokterId)
+    {
+        // Fetch all entries with 'P', 'R', and 'S' status for the specific dokter_id
+        $queues = self::select('id', 'dokter_id', 'status', 'urut')
+            ->whereIn('status', ['P', 'R', 'S'])
+            ->where('dokter_id', $dokterId)
+            ->orderBy('urut', 'asc')
+            ->get();
 
-
+        // Map the doctor to their current ('P') and next ('R') queues
+        return [
+            'current' => $queues->firstWhere('status', 'P'), // Current queue
+            'next' => $queues->where('status', 'R')->min('urut') // Next 'R' queue number
+        ];
+    }
 }

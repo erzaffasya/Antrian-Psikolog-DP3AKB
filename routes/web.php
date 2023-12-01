@@ -6,6 +6,7 @@ use App\Http\Controllers\antrianDokterController;
 use App\Http\Controllers\AntrianDokterController as ControllersAntrianDokterController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\ChangeStatusController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\SpesialisController;
 use App\Http\Controllers\PanggilanAntrianController;
@@ -45,7 +46,7 @@ Route::get('/profile', function () {
     return view('admin.profile');
 })->name('profile');
 
-
+Route::post('/update-status', [ChangeStatusController::class, 'updateStatus'])->name('update-status');
 //make route for admin page
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('spesialis', SpesialisController::class);

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Antrian;
+use Illuminate\Support\Facades\Auth;
 
 class AntrianDokterController extends Controller
 {
@@ -13,7 +15,11 @@ class AntrianDokterController extends Controller
      */
     public function index()
     {
-        return view('antrianDokter.index');
+        $dokterId = Auth::id() - 1;
+
+        $AntrianForDokter = Antrian::getAntrianForDokter($dokterId);
+        // dd($AntrianForDokter);
+        return view('antrianDokter.index', compact('AntrianForDokter'));
     }
 
     /**

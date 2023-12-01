@@ -16,6 +16,7 @@ class PanggilanAntrianController extends Controller
     {
         $Antrian = Antrian::getAllAntrian();
         $AntrianByDokter = Antrian::getAntrianByDokter();
+        // dd($AntrianByDokter);
         return view('admin.panggilanAntrian.index', compact('Antrian', 'AntrianByDokter'));
     }
 
