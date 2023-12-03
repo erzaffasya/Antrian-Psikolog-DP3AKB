@@ -6,8 +6,8 @@
                 <script>
                     document.write(new Date().getFullYear());
                 </script>
-                , made with <span class="text-danger"><i class="tf-icons mdi mdi-heart"></i></span> by
-                <a href="https://google.com" target="_blank" class="footer-link fw-medium">DP3AKB</a>
+                , made with <span class="text-danger"></span> by
+                <a href="https://google.com" target="_blank" class="footer-link fw-medium"> PT. media Kreatifindo Nusantara</a>
             </div>
 
         </div>

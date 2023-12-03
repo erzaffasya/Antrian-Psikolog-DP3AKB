@@ -14,9 +14,9 @@
                             <th>No</th>
                             <th>Nomor</th>
                             <th>Tanggal</th>
-                            <th>Pasien</th>
-                            <th>Dokter</th>
-                            <th>Action</th>
+                            <th>Warga</th>
+                            <th>Psikolog</th>
+                            {{-- <th>Action</th> --}}
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -27,21 +27,16 @@
                                 <td>{{ $item->tanggal }}</td>
                                 <td>{{ $item->users->name }}</td>
                                 <td>
-                                    @php
-                                        $nextDoctor = \App\Models\User::find($item->dokter_id + 1);
-                                    @endphp
-                                    {{ $nextDoctor->name ?? 'Doctor not found' }}
+                                   {{$item->dokter->name}}
                                 </td>
 
-                                <td>
+                                {{-- <td>
                                     <div class="dropdown">
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                             data-bs-toggle="dropdown">
                                             <i class="mdi mdi-dots-vertical"></i>
                                         </button>
                                         <div class="dropdown-menu">
-                                            {{-- <a class="dropdown-item" href="{{ route('dokter.edit', $item->id) }}"><i
-                                                    class="mdi mdi-pencil-outline me-1"></i> Edit</a> --}}
                                             <form method="POST" action="{{ route('antrian.destroy', $item->id) }}">
                                                 @csrf
                                                 @method('DELETE')
@@ -52,7 +47,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>
