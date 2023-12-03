@@ -8,11 +8,9 @@
             <div class="col-xxl">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <form method="post" action="{{ route('dokter.update', $Dokter->id) }}"
-                            enctype="multipart/form-data">
+                        <form method="post" action="{{ route('dokter.update', $Dokter->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-
                             <div class="row mb-3">
                                 <label class="col-sm-2 form-label" for="basic-icon-default-message">Kode</label>
                                 <div class="col-sm-10">
@@ -20,10 +18,7 @@
                                         <span id="basic-icon-default-message2" class="input-group-text">
                                             <i class="mdi mdi-message-outline"></i>
                                         </span>
-                                        <input id="basic-icon-default-message" class="form-control"
-                                            name="kode" placeholder="Masukan Kode"
-                                            aria-label="Masukan Kode"
-                                            aria-describedby="basic-icon-default-message2" value="{{$Dokter->kode}}" />
+                                        <input id="basic-icon-default-message" class="form-control" name="kode" placeholder="Masukan Kode" aria-label="Masukan Kode" aria-describedby="basic-icon-default-message2" value="{{$Dokter->kode}}" />
                                     </div>
                                 </div>
                             </div>
@@ -34,31 +29,28 @@
                                         <span id="basic-icon-default-fullname2" class="input-group-text">
                                             <i class="mdi mdi-subtitles-outline"></i>
                                         </span>
-                                        <select class="form-select" name="users_id" id="exampleFormControlSelect1"
-                                            aria-label="Default select example" disabled>
+                                        <select class="form-select" name="users_id" id="exampleFormControlSelect1" aria-label="Default select example" disabled>
                                             @foreach ($User as $item)
-                                                <option value="{{ $item->id }}"
-                                                    @if ($Dokter->users_id == $item->id) selected @endif>
-                                                    {{ $item->name }}</option>
+                                            <option value="{{ $item->id }}" @if ($Dokter->users_id == $item->id) selected @endif>
+                                                {{ $item->name }}
+                                            </option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label"
-                                    for="basic-icon-default-fullname">Spesialis</label>
+                                <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Spesialis</label>
                                 <div class="col-sm-10">
                                     <div class="input-group input-group-merge">
                                         <span id="basic-icon-default-fullname2" class="input-group-text">
                                             <i class="mdi mdi-subtitles-outline"></i>
                                         </span>
-                                        <select class="form-select" name="spesialis_id" id="exampleFormControlSelect1"
-                                            aria-label="Default select example">
+                                        <select class="form-select" name="spesialis_id" id="exampleFormControlSelect1" aria-label="Default select example">
                                             @foreach ($Spesialis as $item)
-                                                <option value="{{ $item->id }}"
-                                                    @if ($Dokter->spesialis_id == $item->id) selected @endif>
-                                                    {{ $item->spesialis }}</option>
+                                            <option value="{{ $item->id }}" @if ($Dokter->spesialis_id == $item->id) selected @endif>
+                                                {{ $item->spesialis }}
+                                            </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -72,10 +64,7 @@
                                         <span id="basic-icon-default-message2" class="input-group-text">
                                             <i class="mdi mdi-message-outline"></i>
                                         </span>
-                                        <input id="basic-icon-default-message" class="form-control"
-                                            name="batas_maksimal" placeholder="Masukan Deskripsi"
-                                            aria-label="Masukan Deskripsi" value="{{ $Dokter->batas_maksimal }}"
-                                            aria-describedby="basic-icon-default-message2" />
+                                        <input id="basic-icon-default-message" class="form-control" name="batas_maksimal" placeholder="Masukan Deskripsi" aria-label="Masukan Deskripsi" value="{{ $Dokter->batas_maksimal }}" aria-describedby="basic-icon-default-message2" />
                                     </div>
                                 </div>
                             </div>
@@ -86,10 +75,7 @@
                                         <span id="basic-icon-default-message2" class="input-group-text">
                                             <i class="mdi mdi-message-outline"></i>
                                         </span>
-                                        <input id="basic-icon-default-message" value="{{ $Dokter->jam_mulai }}"
-                                            class="form-control" name="jam_mulai" type="time" placeholder="Masukan Deskripsi"
-                                            aria-label="Masukan Deskripsi"
-                                            aria-describedby="basic-icon-default-message2" />
+                                        <input id="basic-icon-default-message" value="{{ $Dokter->jam_mulai }}" class="form-control" name="jam_mulai" type="time" placeholder="Masukan Deskripsi" aria-label="Masukan Deskripsi" aria-describedby="basic-icon-default-message2" />
                                     </div>
                                 </div>
                             </div>
@@ -100,10 +86,7 @@
                                         <span id="basic-icon-default-message2" class="input-group-text">
                                             <i class="mdi mdi-message-outline"></i>
                                         </span>
-                                        <input id="basic-icon-default-message" type="time" value="{{ $Dokter->jam_selesai }}"
-                                            class="form-control" name="jam_selesai" placeholder="Masukan Deskripsi"
-                                            aria-label="Masukan Deskripsi"
-                                            aria-describedby="basic-icon-default-message2" />
+                                        <input id="basic-icon-default-message" type="time" value="{{ $Dokter->jam_selesai }}" class="form-control" name="jam_selesai" placeholder="Masukan Deskripsi" aria-label="Masukan Deskripsi" aria-describedby="basic-icon-default-message2" />
                                     </div>
                                 </div>
                             </div>
@@ -113,12 +96,12 @@
                                 <div class="col-sm-10">
                                     <div class="form-check mt-3">
                                         <input name="isLibur" @if ($Dokter->isLibur == 1) checked @endif class="form-check-input" type="radio" value="1"
-                                            id="defaultRadio1">
+                                        id="defaultRadio1">
                                         <label class="form-check-label" for="defaultRadio1"> Libur </label>
                                     </div>
                                     <div class="form-check">
                                         <input name="isLibur" @if ($Dokter->isLibur == 0) checked @endif class="form-check-input" type="radio" value="0"
-                                            id="defaultRadio2" checked="">
+                                        id="defaultRadio2" checked="">
                                         <label class="form-check-label" for="defaultRadio2"> Tidak Libur </label>
                                     </div>
                                 </div>

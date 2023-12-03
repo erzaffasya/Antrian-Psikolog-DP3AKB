@@ -12,6 +12,16 @@ use function PHPUnit\Framework\isNull;
 
 class AntrianController extends Controller
 {
+    public function getAntrian()
+    {
+        $today = now();
+        $Antrian = Antrian::whereYear('created_at', $today->year)
+            ->whereMonth('created_at', $today->month)
+            ->whereDay('created_at', $today->day)
+            ->where('users_id', Auth::user()->id)->first();
+        return view('admin.dashboard', compact('Antrian'));
+    }
+
     public function index()
     {
         $Antrian = new Antrian();

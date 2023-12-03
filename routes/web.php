@@ -39,9 +39,7 @@ Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('r
 
 Route::get('/cetak-antrian', [AntrianController::class, 'cetakAntrian'])->name('cetak-antrian');
 //make route for admin page
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [AntrianController::class, 'getAntrian'])->middleware(['auth'])->name('dashboard');
 
 Route::get('/profile', function () {
     return view('admin.profile');

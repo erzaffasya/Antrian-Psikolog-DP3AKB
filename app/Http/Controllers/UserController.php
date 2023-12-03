@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
+
 class UserController extends Controller
 {
     public function index()
@@ -79,12 +80,11 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $User = User::find($id);
-        $User->user = $request->user;
-        $User->deskripsi = $request->deskripsi;
+        $User->role = $request->role;
         $User->save();
 
         return redirect()->route('user.index')
-        ->with('edit', 'User Berhasil Diedit');
+            ->with('edit', 'User Berhasil Diedit');
     }
 
     /**

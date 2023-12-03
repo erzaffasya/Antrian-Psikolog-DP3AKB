@@ -52,25 +52,22 @@
                     <div class="row col-4">
                         <div class="col d-grid gap-2" style="margin-left: 10%;"> <!-- Use d-grid for full-width buttons -->
 
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="">Riwayat Tindakan</h5>
-                                    <textarea class="form-control h-px-100" id="keterangan" name="keterangan" placeholder="Masukan Riwayat Tindakan..."></textarea>
-                                    <!-- <input type="text" class="form-control" placeholder="Masukan Riwayat Tindakan" name="riwayat-tindakan" height="90"></input> -->
+                            <div class="col-12">
+                                <div class="form-floating form-floating-outline">
+                                    <textarea class="form-control h-px-100" id="keterangan" name="keterangan" placeholder="Tuliskan Keterangan..."></textarea>
+                                    <label for="keterangan">Keterangan</label>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="">Riwayat Tindakan</h5>
-                                    <textarea class="form-control h-px-100" id="keluhan" name="keluhan" placeholder="Masukan Riwayat Tindakan..."></textarea>
-                                    <!-- <input type="text" class="form-control" placeholder="Masukan Riwayat Tindakan" name="riwayat-tindakan" height="90"></input> -->
+                            <div class="col-12">
+                                <div class="form-floating form-floating-outline">
+                                    <textarea class="form-control h-px-100" id="keluhan" name="keluhan" placeholder="Tuliskan Keluhan..."></textarea>
+                                    <label for="keluhan">Keluhan</label>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="">Riwayat Tindakan</h5>
-                                    <textarea class="form-control h-px-100" id="tindakan" name="tindakan" placeholder="Masukan Riwayat Tindakan..."></textarea>
-                                    <!-- <input type="text" class="form-control" placeholder="Masukan Riwayat Tindakan" name="riwayat-tindakan" height="90"></input> -->
+                            <div class="col-12">
+                                <div class="form-floating form-floating-outline">
+                                    <textarea class="form-control h-px-100" id="tindakan" name="tindakan" placeholder="Tuliskan Tindakan..."></textarea>
+                                    <label for="tindakan">Riwayat Tindakan</label>
                                 </div>
                             </div>
 
@@ -120,7 +117,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary" id="nextQueueModal">Panggil</button>
+                    <button type="button" class="btn btn-primary" id="nextQueueModalButton">Panggil</button>
                 </div>
             </div>
         </div>
@@ -133,75 +130,126 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="profilePasienModalLabel">Profile Pasien {{ $User->name }} </h5>
+                    <i class="fa fa-user me-2"></i>
+                    <h5 class="modal-title" id="profilePasienModalLabel">Profile Pasien Antrian Saat Ini</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <!-- <div class="col-md-4 text-center">
+                                    <img src="{{ asset('assets/images/users/' . $User->foto) }}" class="rounded-circle" width="150" />
+                                </div> -->
+                                <div class="col-md-12">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td>Nama</td>
+                                            <td>:</td>
+                                            <td>{{ $User->nama_lengkap }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pekerjaan</td>
+                                            <td>:</td>
+                                            <td>{{ $User->pekerjaan }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Agama</td>
+                                            <td>:</td>
+                                            <td>{{ $User->agama }}</td>
+                                        <tr>
+                                            <td>Tanggal Lahir</td>
+                                            <td>:</td>
+                                            <td>{{ $User->tgl_lahir }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jenis Kelamin</td>
+                                            <td>:</td>
+                                            <td>{{ $User->jenis_kelamin }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Alamat</td>
+                                            <td>:</td>
+                                            <td>{{ $User->alamat }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>No. HP</td>
+                                            <td>:</td>
+                                            <td>{{ $User->hp }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>:</td>
+                                            <td>{{ $User->email }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                        <!-- <button type="button" class="btn btn-warning">Panggil</button> -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                            <!-- <button type="button" class="btn btn-warning">Panggil</button> -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    @endif
+        @endif
 
-    <!-- End Modal Profile User -->
+        <!-- End Modal Profile User -->
 
-    <!-- Modal Antrian Selesai -->
-    <div class="modal fade" id="antrianSelesaiModal" tabindex="-1" aria-labelledby="antrianSelesaiModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="antrianSelesaiModalLabel">Antrian Selesai</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Konfirmasi untuk menyelesaikan antrian.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-success">Selesai</button>
+        <!-- Modal Antrian Selesai -->
+        <div class="modal fade" id="antrianSelesaiModal" tabindex="-1" aria-labelledby="antrianSelesaiModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="antrianSelesaiModalLabel">Antrian Selesai</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Konfirmasi untuk menyelesaikan antrian.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="button" class="btn btn-success">Selesai</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Modal Antrian Selesai -->
+        <!-- End Modal Antrian Selesai -->
 
-    <script>
-        document.getElementById('nextQueueModal').addEventListener('click', function() {
-            var keterangan = document.getElementById('keterangan').value;
-            var keluhan = document.getElementById('keluhan').value;
-            var tindakan = document.getElementById('tindakan').value;
-            // Make an AJAX request to the route that handles the status update
-            fetch('/update-status', {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        keterangan: keterangan,
-                        keluhan: keluhan,
-                        tindakan: tindakan,
-                    }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Handle the response, you can update the view if needed
+        <script>
+            document.getElementById('nextQueueModalButton').addEventListener('click', function() {
+                var keterangan = document.getElementById('keterangan').value;
+                var keluhan = document.getElementById('keluhan').value;
+                var tindakan = document.getElementById('tindakan').value;
+                // Make an AJAX request to the route that handles the status update
+                fetch('/update-status', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            keterangan: keterangan,
+                            keluhan: keluhan,
+                            tindakan: tindakan,
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle the response, you can update the view if needed
 
 
-                    // Close the confirmation modal
-                    $('#nextQueueModal').modal('hide');
-                    window.location.reload();
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        });
-    </script>
+                        // Close the confirmation modal
+                        $('#nextQueueModal').modal('hide');
+                        window.location.reload();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+        </script>
 
 </x-app-layout>
