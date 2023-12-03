@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 
 class Antrian extends Model
@@ -60,6 +62,7 @@ class Antrian extends Model
             ->get()
             ->groupBy('dokter_id');
 
+        // dd($queues, 'asd');
         // Map each doctor to their current ('P') and next ('R') queues
         return $queues->map(function ($items) {
             return [
@@ -72,16 +75,15 @@ class Antrian extends Model
     public static function getAntrianForDokter($dokterId)
     {
         // Fetch all entries with 'P', 'R', and 'S' status for the specific dokter_id
-        $queues = self::select('id', 'dokter_id', 'status', 'urut')
+        $queues = self::select('id', 'dokter_id', 'status', 'urut', 'users_id')
             ->whereIn('status', ['P', 'R', 'S'])
             ->where('dokter_id', $dokterId)
             ->orderBy('urut', 'asc')
             ->get();
-
         // Map the doctor to their current ('P') and next ('R') queues
         return [
             'current' => $queues->firstWhere('status', 'P'), // Current queue
-            'next' => $queues->where('status', 'R')->min('urut') // Next 'R' queue number
+            'next' => $queues->where('status', 'R')->min('urut')
         ];
     }
 }

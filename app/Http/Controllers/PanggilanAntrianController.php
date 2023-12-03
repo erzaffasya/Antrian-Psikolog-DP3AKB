@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Antrian;
 
 use Illuminate\Http\Request;

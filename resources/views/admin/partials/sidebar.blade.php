@@ -17,12 +17,12 @@
             </li>
 
             @if (Auth::user()->role == 'Dokter')
-                <li class="menu-item {{ Request::routeIs('antrian-dokter.index') ? 'active' : '' }}">
-                    <a href="{{ route('antrian-dokter.index') }}" class="menu-link ">
-                        <i class="menu-icon tf-icons mdi mdi-doctor"></i>
-                        <div data-i18n="Antrian Dokter">Antrian Dokter</div>
-                    </a>
-                </li>
+            <li class="menu-item {{ Request::routeIs('antrian-dokter.index') ? 'active' : '' }}">
+                <a href="{{ route('antrian-dokter.index') }}" class="menu-link ">
+                    <i class="menu-icon tf-icons mdi mdi-doctor"></i>
+                    <div data-i18n="Antrian Dokter">Antrian Dokter</div>
+                </a>
+            </li>
             @endif
 
 
@@ -33,25 +33,25 @@
                 </a>
                 <ul class="menu-sub">
                     @if (Auth::user()->role == 'Admin')
-                        <li class="menu-item {{ Request::routeIs('spesialis.*') ? 'active' : '' }}">
-                            <a href="{{ route('spesialis.index') }}" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
-                                <div data-i18n="Layanan">Layanan</div>
-                            </a>
-                        </li>
-                        <li class="menu-item {{ Request::routeIs('dokter.*') ? 'active' : '' }}">
-                            <a href="{{ route('dokter.index') }}" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
-                                <div data-i18n="Psikolog">Psikolog</div>
-                            </a>
-                        </li>
+                    <li class="menu-item {{ Request::routeIs('spesialis.*') ? 'active' : '' }}">
+                        <a href="{{ route('spesialis.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
+                            <div data-i18n="Layanan">Layanan</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Request::routeIs('dokter.*') ? 'active' : '' }}">
+                        <a href="{{ route('dokter.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
+                            <div data-i18n="Psikolog">Psikolog</div>
+                        </a>
+                    </li>
 
-                        <li class="menu-item ">
-                            <a href="{{ route('user.index') }}" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
-                                <div data-i18n="Akun">Akun</div>
-                            </a>
-                        </li>
+                    <li class="menu-item ">
+                        <a href="{{ route('user.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
+                            <div data-i18n="Akun">Akun</div>
+                        </a>
+                    </li>
                     @endif
                     <li class="menu-item ">
                         <a href="{{ route('antrian.index') }}" class="menu-link">
@@ -60,7 +60,7 @@
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="#" class="menu-link">
+                        <a href="{{ route('riwayat-tindakan.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
                             <div data-i18n="Riwayat Tindakan">Riwayat Tindakan</div>
                         </a>
@@ -74,11 +74,11 @@
 
         <!-- Charts & Maps -->
         {{-- <li class="menu-item {{ Request::routeIs('dokter.*') ? 'active' : '' }}">
-                <a href="{{ route('dokter.index') }}" class="menu-link">
-                    <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
-                    <div data-i18n="Dokter">Dokter</div>
-                </a>
-            </li> --}}
+        <a href="{{ route('dokter.index') }}" class="menu-link">
+            <i class="menu-icon tf-icons mdi mdi-chart-donut"></i>
+            <div data-i18n="Dokter">Dokter</div>
+        </a>
+        </li> --}}
         </ul>
     </div>
 </aside>

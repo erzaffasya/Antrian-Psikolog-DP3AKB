@@ -11,6 +11,7 @@ use App\Http\Controllers\SpesialisController;
 use App\Http\Controllers\PanggilanAntrianController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DependantDropdownController;
+use App\Http\Controllers\RiwayatTindakanController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -51,16 +52,15 @@ Route::post('/update-status', [ChangeStatusController::class, 'updateStatus'])->
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('spesialis', SpesialisController::class);
     Route::resource('dokter', DokterController::class);
-    Route::resource('riwayat-tindakan', RiwayatTindakan::class);
+    Route::resource('riwayat-tindakan', RiwayatTindakanController::class);
     Route::resource('antrian', AntrianController::class);
     Route::resource('user', UserController::class);
     Route::resource('ambil-antrian', AmbilAntrianController::class);
 
-Route::resource('panggilan-antrian', PanggilanAntrianController::class);
+    Route::resource('panggilan-antrian', PanggilanAntrianController::class);
 
-Route::resource('antrian-dokter', AntrianDokterController::class);
+    Route::resource('antrian-dokter', AntrianDokterController::class);
 });
 
 
 require __DIR__ . '/auth.php';
-

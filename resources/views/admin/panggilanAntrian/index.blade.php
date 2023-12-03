@@ -22,9 +22,9 @@
                                     <div class="card-header bg-primary text-white">
                                         @php
                                         // Note: Ensure that dokter_id is correctly used here, without adding 1
-                                        $doctor = \App\Models\User::find($dokterId + 1);
+                                        $doctor = \App\Models\Dokter::find($dokterId);
                                         @endphp
-                                        <p class="fs-5 text-white">Dr. {{ $doctor->name ?? 'Doctor not found' }}</p>
+                                        <p class="fs-5 text-white">Dr. {{ $doctor->users->name ?? 'Doctor not found' }}</p>
                                     </div>
                                     <div class="card-body">
                                         <div class="text-center mb-3">

@@ -8,18 +8,19 @@ use App\Models\Spesialis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use function PHPUnit\Framework\isNull;
+
 class AntrianController extends Controller
 {
     public function index()
     {
         $Antrian = new Antrian();
-        if (Auth::user()->role == 'Admin') {
-            $Antrian = Antrian::with('dokter')->orderBy('created_at', 'desc')->get();
-        } else if (Auth::user()->role == 'Dokter') {
-            $Antrian = Antrian::with('dokter')->where('dokter_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+        if (Auth::user()->role == 'Member') {
+            $Antrian = Antrian::with('dokter')->orderBy('users_id', 'asc')->get();
         } else {
-            $Antrian = Antrian::with('dokter')->where('users_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+            $Antrian = Antrian::with('dokter')->where('users_id', 1)->orderBy('users_id', 'asc')->get();
         }
+
         return view('admin.antrian.index', compact('Antrian'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -63,13 +64,19 @@ class AntrianController extends Controller
         $hari = $today->format('d');
         $tahun = $today->format('Y');
 
-        $urutanMax = Antrian::whereYear('created_at', $today->year)
+
+        $status = 'R';
+        $getAntrian = Antrian::whereYear('created_at', $today->year)
             ->whereMonth('created_at', $today->month)
             ->whereDay('created_at', $today->day)
-            ->where('dokter_id', $dokter->id)
-            ->max('urut');
+            ->where('dokter_id', $dokter->id)->get();
 
-        $urutanBaru = $urutanMax + 1;
+        if (count($getAntrian->where('status', 'P')) == 0) {
+            $status = 'P';
+        }
+
+        $urutanBaru = $getAntrian->max('urut') + 1;
+        // dd($getAntrian, $urutanBaru);
         $nomorBaru = $dokter->kode . '/' . $tahun . '/' . $bulan . '-' . $hari . '/' . str_pad($urutanBaru, 3, '0', STR_PAD_LEFT);
 
         Antrian::create([
@@ -79,7 +86,7 @@ class AntrianController extends Controller
             'users_id' => Auth::user()->id,
             'dokter_id' => $request->dokter_id,
             'spesialis_id' => $dokter->spesialis_id,
-            'status' => $request->status,
+            'status' => $status,
             'keterangan' => $request->keterangan,
             'isOnline' => $request->isOnline
         ]);

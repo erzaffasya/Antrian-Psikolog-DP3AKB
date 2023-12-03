@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Antrian;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AntrianDokterController extends Controller
 {
@@ -17,8 +18,12 @@ class AntrianDokterController extends Controller
     {
         $dokterId = Auth::user()->dokter->id;
         $AntrianForDokter = Antrian::getAntrianForDokter($dokterId);
-        // dd($AntrianForDokter);
-        return view('antrianDokter.index', compact('AntrianForDokter'));
+        $User = null;
+        if ($AntrianForDokter['current'] != null) {
+            $User = User::find($AntrianForDokter['current']->users_id);
+        }
+        // dd($User);
+        return view('antrianDokter.index', compact('AntrianForDokter', 'User'));
     }
 
     /**

@@ -12,4 +12,14 @@ class RiwayatTindakan extends Model
     protected $guarded = [];
 
     protected $primaryKey = 'id';
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'users_id', 'id');
+    }
+
+    public function dokter()
+    {
+        return $this->belongsTo(User::class, 'dokter_id', 'id');
+    }
 }

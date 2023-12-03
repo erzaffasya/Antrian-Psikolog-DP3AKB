@@ -81,7 +81,7 @@ class RiwayatTindakanController extends Controller
         $RiwayatTindakan->save();
 
         return redirect()->route('RiwayatTindakan.index')
-        ->with('edit', 'RiwayatTindakan Berhasil Diedit');
+            ->with('edit', 'RiwayatTindakan Berhasil Diedit');
     }
 
     /**

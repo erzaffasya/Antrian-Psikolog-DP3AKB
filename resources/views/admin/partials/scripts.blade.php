@@ -8,7 +8,7 @@
 <script src="{{ asset('tadmin/assets/vendor/libs/i18n/i18n.js') }}"></script>
 <script src="{{ asset('tadmin/assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
 <script src="{{ asset('tadmin/assets/vendor/js/menu.js') }}"></script>
-
+<script src="{{ asset('tadmin/assets/vendor/libs/autosize/autosize.js')}}"></script>
 <!-- endbuild -->
 
 <!-- Vendors JS -->
@@ -18,9 +18,8 @@
 <!-- Main JS -->
 <script src="{{ asset('tadmin/assets/js/main.js') }}"></script>
 
- <!-- Page JS -->
- <script src="{{ asset('tadmin/assets/js/dashboards-crm.js') }}"></script>
+<!-- Page JS -->
+<script src="{{ asset('tadmin/assets/js/dashboards-crm.js') }}"></script>
 
 <!-- Page JS -->
 <script src="{{ asset('tadmin/assets/js/dashboards-analytics.js') }}"></script>
-
