@@ -47,9 +47,15 @@ class Antrian extends Model
 
     public static function getAntrianByDokter()
     {
+
+        $today = now();
+
         // Fetch all entries with 'P', 'R', and 'S' status
         $queues = self::select('dokter_id', 'status', 'urut')
             ->whereIn('status', ['P', 'R', 'S'])
+            ->whereYear('created_at', $today->year)
+            ->whereMonth('created_at', $today->month)
+            ->whereDay('created_at', $today->day)
             ->orderBy('urut', 'asc') // Order by 'urut' in ascending order
             ->get()
             ->groupBy('dokter_id');
