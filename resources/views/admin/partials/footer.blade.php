@@ -7,7 +7,7 @@
                     document.write(new Date().getFullYear());
                 </script>
                 , made with <span class="text-danger"></span> by
-                <a href="https://google.com" target="_blank" class="footer-link fw-medium"> PT. media Kreatifindo Nusantara</a>
+                <a href="https://google.com" target="_blank" class="footer-link fw-medium"> PT. Media Kreatifindo Nusantara</a>
             </div>
 
         </div>
