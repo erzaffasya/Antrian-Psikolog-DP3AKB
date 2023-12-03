@@ -40,7 +40,7 @@
                     </span>
                 </span> -->
                 <img src="{{asset('tadmin/assets/img/pemkot.png')}}" width="30px" alt="logo" class="logo-img">
-                <span class="app-brand-text demo menu-text fw-bold">PUSPAGA</span>
+                <span class="app-brand-text demo menu-text fw-bold">PUSPAGA HARAPAN</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-xl-none">
