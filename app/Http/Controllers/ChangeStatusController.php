@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Antrian;
 use App\Models\RiwayatTindakan;
+use App\Models\User;
 
 class ChangeStatusController extends Controller
 {
@@ -18,13 +19,14 @@ class ChangeStatusController extends Controller
 
         // Fetch the current and next queues
         $AntrianForDokter = Antrian::getAntrianForDokter($dokterId);
+        $dataResponse = null;
         if ($AntrianForDokter['current']) {
             // Update the statuses
             DB::transaction(function () use ($AntrianForDokter, $request) {
                 // Update the status of the current patient to 'S'
                 $this->updateAntrianStatus($AntrianForDokter['current']->id, 'S');
                 // Update the status of the patient with the lowest number and status 'R' to 'P'
-                $this->updateAntrianStatusByUrutAndStatus();
+                $this->updateAntrianStatusByUrutAndStatus($AntrianForDokter['current']->dokter_id);
 
 
                 RiwayatTindakan::create([
@@ -38,7 +40,19 @@ class ChangeStatusController extends Controller
             });
 
 
-            return response()->json(['success' => true]);
+            $dataAntrianNext = Antrian::where('status', 'P')->where('dokter_id', $AntrianForDokter['current']->dokter_id)->orderBy('urut', 'asc')->first();
+            if ($dataAntrianNext != null) {
+                $dataNext = User::find($dataAntrianNext->users_id);
+                $dataResponse = [
+                    'nomor' => $dataAntrianNext->nomor,
+                    'nama' => $dataNext->nama_lengkap,
+                    'telepon' => $dataNext->hp,
+                    'urut' => $dataAntrianNext->urut
+                ];
+            }
+            // DD($dataAntrianNext, $dataNext, $dataResponse);
+
+            return response()->json(['success' => true, 'data' => $dataResponse]);
         }
 
         return response()->json(['success' => false, 'message' => 'No current or next queues']);
@@ -51,9 +65,9 @@ class ChangeStatusController extends Controller
     }
 
     // Helper method to update status based on Urut and Status
-    private function updateAntrianStatusByUrutAndStatus()
+    private function updateAntrianStatusByUrutAndStatus($dokterId)
     {
-        $dataAntrian = Antrian::where('status', 'R')->orderBy('urut', 'asc')->first();
+        $dataAntrian = Antrian::where('status', 'R')->where('dokter_id', $dokterId)->orderBy('urut', 'asc')->first();
 
         if ($dataAntrian != null) {
             $dataAntrian->update(['status' => 'P']);

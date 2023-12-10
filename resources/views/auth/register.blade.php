@@ -228,7 +228,7 @@
                                                 <div class="form-floating form-floating-outline">
                                                     <input type="text" id="multiStepsMobile" name="hp"
                                                         class="form-control multi-steps-mobile"
-                                                        placeholder="202 555 0111" />
+                                                        placeholder="815 3333 3111" />
                                                     <label for="multiStepsMobile">Nomor HP</label>
                                                 </div>
                                             </div>
