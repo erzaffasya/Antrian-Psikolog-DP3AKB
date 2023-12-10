@@ -28,9 +28,8 @@ class ChangeStatusController extends Controller
                 // Update the status of the patient with the lowest number and status 'R' to 'P'
                 $this->updateAntrianStatusByUrutAndStatus($AntrianForDokter['current']->dokter_id);
 
-
                 RiwayatTindakan::create([
-                    'dokter_id' => $AntrianForDokter['current']->dokter_id,
+                    'dokter_id' =>  User::find($AntrianForDokter['current']->dokter_id)->get('id'),
                     'users_id' => $AntrianForDokter['current']->users_id,
                     'keterangan' => $request->keterangan,
                     'tindakan' => $request->tindakan,

@@ -26,9 +26,11 @@ class AntrianController extends Controller
     {
         $Antrian = new Antrian();
         if (Auth::user()->role == 'Member') {
-            $Antrian = Antrian::with('dokter')->orderBy('users_id', 'asc')->get();
+            $Antrian = Antrian::with('dokter')->where('users_id', Auth::user()->id)->orderBy('users_id', 'asc')->get();
+        } else if (Auth::user()->role == 'Dokter') {
+            $Antrian = Antrian::with('dokter')->where('dokter_id', Auth::user()->id)->orderBy('users_id', 'asc')->get();
         } else {
-            $Antrian = Antrian::with('dokter')->where('users_id', 1)->orderBy('users_id', 'asc')->get();
+            $Antrian = Antrian::with('dokter')->orderBy('users_id', 'asc')->get();
         }
 
         return view('admin.antrian.index', compact('Antrian'))

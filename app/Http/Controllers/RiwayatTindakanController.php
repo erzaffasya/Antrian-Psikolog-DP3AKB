@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\RiwayatTindakan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RiwayatTindakanController extends Controller
 {
     public function index()
     {
-        $RiwayatTindakan = RiwayatTindakan::all();
+        if (Auth::user()->role == 'Member') {
+            $RiwayatTindakan = RiwayatTindakan::where('users_id', Auth::user()->id)->orderBy('created_at', 'DESC')->get();
+        } else if (Auth::user()->role == 'Dokter') {
+            $RiwayatTindakan = RiwayatTindakan::where('dokter_id', Auth::user()->id)->orderBy('created_at', 'DESC')->get();
+        } else {
+            $RiwayatTindakan = RiwayatTindakan::orderBy('created_at', 'DESC')->get();
+        }
         return view('admin.RiwayatTindakan.index', compact('RiwayatTindakan'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
